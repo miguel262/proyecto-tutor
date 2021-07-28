@@ -1,0 +1,55 @@
+{
+  "name": "learner-model-gql",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/PabloSzx/learner-model-gql#readme",
+  "bugs": {
+    "url": "https://github.com/PabloSzx/learner-model-gql/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloSzx/learner-model-gql.git"
+  },
+  "license": "MIT",
+  "author": "PabloSzx <pablosaez1995@gmail.com>",
+  "main": "null",
+  "scripts": {
+    "dev": "concurrently -r pnpm:dev:*",
+    "dev:common": "pnpm dev -r --filter common",
+    "dev:db": "pnpm dev -r --filter db",
+    "dev:first": "pnpm dev -r --filter first",
+    "dev:gateway": "pnpm dev -r --filter gateway",
+    "dev:next": "pnpm dev -r --filter client",
+    "dev:react-gql": "pnpm dev -r --filter react-graphql",
+    "pretty": "pretty-quick",
+    "pretty:all": "prettier --write \"**/*.{ts,tsx,gql,json}\"",
+    "start": "pm2 start ecosystem.config.js",
+    "test": "pnpm -r test"
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "husky": "^6.0.0",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "typescript": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "dotenv": "^10.0.0",
+    "pm2": "^5.1.0",
+    "react": "^17.0.2",
+    "valtio": "^1.0.6"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "valtio": "^1.0.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "prisma": "2.23.0",
+      "@prisma/client": "2.23.0",
+      "esbuild": "^0.12.9"
+    }
+  }
+}
