@@ -4,12 +4,11 @@ import {
   Alert,
   AlertIcon,
   Button,
-  Flex,
-  Grid,
-  GridItem,
   Input,
   Wrap,
   WrapItem,
+  Center,
+  Spacer,
 } from "@chakra-ui/react";
 
 import Hint from "../../tools/Hint";
@@ -55,19 +54,19 @@ const FCCpaso1 = ({
 
   return (
     <>
-      <br></br>
-      <Wrap>
-        <WrapItem w={250}>
-          &nbsp; &nbsp;
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem padding="5px 0px 10px 0px">
           <MathComponent
             tex={String.raw`${ejercicio.expression}`}
             display={false}
           />
         </WrapItem>
 
-        <WrapItem w={550}>
-          <Flex align="center">
-            <label>(&nbsp;</label>
+        <Spacer />
+
+        <WrapItem>
+          <Center>
+            <label>(</label>
             <Input
               style={{
                 textAlign: "center",
@@ -75,27 +74,17 @@ const FCCpaso1 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="30%"
+              w={160}
               focusBorderColor="#9DECF9"
               placeholder="Ingrese factor común"
               ref={respuesta}
               isReadOnly={paso1Valido != null}
             />
-            <label>&nbsp;)</label>
-            {paso1Valido === null && (
-              <>
-                <label>&nbsp;(?)&nbsp;&nbsp;&nbsp;</label>
-                <Button
-                  colorScheme="cyan"
-                  size="sm"
-                  variant="outline"
-                  onClick={comparar}
-                >
-                  Aceptar
-                </Button>
-              </>
-            )}
-            {paso1Valido !== null && (
+            <label>)</label>
+
+            {paso1Valido === null ? (
+              <label>&nbsp;(?)</label>
+            ) : (
               <>
                 <MathComponent
                   tex={String.raw`${ejercicio.result}`}
@@ -103,76 +92,31 @@ const FCCpaso1 = ({
                 />
               </>
             )}
-          </Flex>
+          </Center>
         </WrapItem>
+
+        <Spacer />
 
         <WrapItem>
           {paso1Valido === null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
+            <>
+              <Button
+                colorScheme="cyan"
+                size="sm"
+                variant="outline"
+                onClick={comparar}
+              >
+                Aceptar
+              </Button>
+              &nbsp;&nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                setHintsTerminado={setHintsTerminado}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>
-      <br></br>
-      {/*<Grid templateColumns="repeat(7, 1fr)" gap={1}>
-        <GridItem colSpan={2}>
-          <Flex align="center">
-            <p> &nbsp; &nbsp; </p>
-            <MathComponent
-              tex={String.raw`${ejercicio.expression}`}
-              display={false}
-            />
-          </Flex>
-        </GridItem>
-
-        <GridItem colSpan={4}>
-          <Flex align="center">
-            <label>(&nbsp;</label>
-            <Input
-              style={{
-                textAlign: "center",
-                fontStyle: "italic",
-                fontWeight: "600",
-              }}
-              size="sm"
-              w="30%"
-              focusBorderColor="#9DECF9"
-              placeholder="Ingrese factor común"
-              ref={respuesta}
-              isReadOnly={paso1Valido != null}
-              //FormLabel={paso1Valido != null && "data-disabled"}
-            />
-            <label>&nbsp;)</label>
-            {paso1Valido === null && (
-              <>
-                <label>&nbsp;(?)&nbsp;</label>
-                <Button colorScheme="cyan" variant="outline" onClick={comparar}>
-                  Aceptar
-                </Button>
-              </>
-            )}
-            {paso1Valido !== null && (
-              <>
-                <MathComponent
-                  tex={String.raw`${ejercicio.result}`}
-                  display={false}
-                />
-              </>
-            )}
-          </Flex>
-        </GridItem>
-
-        <GridItem colSpan={1}>
-          {paso1Valido === null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
-          )}
-        </GridItem>
-          </Grid>*/}
 
       {estado}
     </>

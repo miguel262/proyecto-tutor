@@ -5,9 +5,8 @@ import {
   Alert,
   AlertIcon,
   Button,
-  Grid,
-  GridItem,
-  Flex,
+  Center,
+  Spacer,
   Input,
   Wrap,
   WrapItem,
@@ -49,20 +48,20 @@ export const TCpaso5 = ({
   };
   return (
     <>
-      <br></br>
-      <Wrap>
-        <WrapItem w={300}>
-          <Flex align="center">
-            &nbsp; &nbsp;
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem padding="8px 0px 10px 0px">
+          <Center>
             <MathComponent
               tex={String.raw`${ejercicio.expression}`}
               display={false}
             />
-          </Flex>
+          </Center>
         </WrapItem>
 
-        <WrapItem w={500}>
-          <Flex align="center">
+        <Spacer />
+
+        <WrapItem>
+          <Center>
             <label>x₁ =&nbsp;</label>
             <Input
               style={{
@@ -71,14 +70,14 @@ export const TCpaso5 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="25%"
+              w={100}
               focusBorderColor="#9DECF9"
               placeholder="Ingrese x₁"
               ref={respuesta1}
               isReadOnly={paso5Valido != null}
             />
-            &nbsp;&nbsp;
-            <label>, x₂ =&nbsp;</label>
+
+            <label>&nbsp;&nbsp;, x₂ =&nbsp;</label>
             <Input
               style={{
                 textAlign: "center",
@@ -86,14 +85,20 @@ export const TCpaso5 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="25%"
+              w={100}
               focusBorderColor="#9DECF9"
               placeholder="Ingrese x₂"
               ref={respuesta2}
               isReadOnly={paso5Valido != null}
             />
-            &nbsp;&nbsp;&nbsp;
-            {paso5Valido == null && (
+          </Center>
+        </WrapItem>
+
+        <Spacer />
+
+        <WrapItem>
+          {paso5Valido == null && (
+            <>
               <Button
                 colorScheme="cyan"
                 variant="outline"
@@ -102,22 +107,16 @@ export const TCpaso5 = ({
               >
                 Aceptar
               </Button>
-            )}
-          </Flex>
-        </WrapItem>
-
-        <WrapItem>
-          {paso5Valido == null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
+              &nbsp;&nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                setHintsTerminado={setHintsTerminado}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>
-
-      <br></br>
-      {paso5Valido == null && hintsTerminado === null && estado}
+      {paso5Valido == null && estado}
     </>
   );
 };

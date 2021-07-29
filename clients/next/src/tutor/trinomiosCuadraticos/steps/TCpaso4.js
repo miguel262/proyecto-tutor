@@ -4,9 +4,8 @@ import {
   Alert,
   AlertIcon,
   Button,
-  Grid,
-  GridItem,
-  Flex,
+  Center,
+  Stack,
   Radio,
   RadioGroup,
   Wrap,
@@ -32,42 +31,38 @@ export const TCpaso4 = ({ ejercicio, setPaso4Valido, paso4Valido }) => {
   };
   return (
     <>
-      <br></br>
-
-      <Wrap>
-        <WrapItem w={350}>
-          <Flex align="center">
-            &nbsp; &nbsp;
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem>
+          <Center>
             <RadioGroup onChange={setValue} value={value}>
-              <Radio value="1" isReadOnly={paso4Valido != null}>
-                Factorizable con diferentes raices
-              </Radio>
-              <Radio value="2" isReadOnly={paso4Valido != null}>
-                Factorizable con raices iguales
-              </Radio>
-              <Radio value="3" isReadOnly={paso4Valido != null}>
-                No es factorizable (raíces complejas)
-              </Radio>
+              <Stack>
+                <Radio value="1" isReadOnly={paso4Valido != null}>
+                  Factorizable con diferentes raices
+                </Radio>
+                <Radio value="2" isReadOnly={paso4Valido != null}>
+                  Factorizable con raices iguales
+                </Radio>
+                <Radio value="3" isReadOnly={paso4Valido != null}>
+                  No es factorizable (raíces complejas)
+                </Radio>
+              </Stack>
             </RadioGroup>
-          </Flex>
+          </Center>
         </WrapItem>
 
-        <WrapItem>
-          <Flex align="center">
-            {paso4Valido == null && (
-              <Button
-                colorScheme="cyan"
-                variant="outline"
-                onClick={comparar}
-                size="sm"
-              >
-                Aceptar
-              </Button>
-            )}
-          </Flex>
+        <WrapItem padding="25px 0px 0px 70px">
+          {paso4Valido == null && (
+            <Button
+              colorScheme="cyan"
+              variant="outline"
+              onClick={comparar}
+              size="sm"
+            >
+              Aceptar
+            </Button>
+          )}
         </WrapItem>
       </Wrap>
-      <br></br>
       {paso4Valido == null && estado}
     </>
   );

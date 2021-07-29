@@ -2,15 +2,14 @@ import React, { useRef, useState } from "react";
 import Hint from "../../tools/Hint";
 import { MathComponent } from "../../../components/MathJax";
 import {
-  Grid,
-  GridItem,
-  Flex,
   Alert,
   AlertIcon,
   Button,
   Input,
   Wrap,
   WrapItem,
+  Center,
+  Spacer,
 } from "@chakra-ui/react";
 
 const FCCpaso2 = ({
@@ -46,21 +45,21 @@ const FCCpaso2 = ({
   };
   return (
     <>
-      <br></br>
-      <Wrap>
-        <WrapItem w={250}>
-          <Flex align="center">
-            <p> &nbsp; &nbsp; </p>
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem padding="5px 0px 10px 0px">
+          <Center>
             <MathComponent
               tex={String.raw`${ejercicio.expression}`}
               display={false}
             />
-          </Flex>
+          </Center>
         </WrapItem>
 
-        <WrapItem w={550}>
-          <Flex align="center">
-            <label>(&nbsp;</label>
+        <Spacer />
+
+        <WrapItem>
+          <Center>
+            <label>(</label>
             <Input
               style={{
                 textAlign: "center",
@@ -68,16 +67,16 @@ const FCCpaso2 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="20%"
+              w={100}
               focusBorderColor="#9DECF9"
-              placeholder="Factor común 1"
+              placeholder="F. común 1"
               ref={respuesta1}
               isReadOnly={paso2Valido != null}
             />
-            <label>&nbsp;)</label>
+            <label>)</label>
             <MathComponent tex={ejercicio.result[0][1]} display={false} />
             <label>&nbsp;+&nbsp;</label>
-            <label>(&nbsp;</label>
+            <label>(</label>
             <Input
               style={{
                 textAlign: "center",
@@ -85,20 +84,26 @@ const FCCpaso2 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="20%"
+              w={100}
               focusBorderColor="#9DECF9"
-              placeholder="Factor común 2"
+              placeholder="F. común 2"
               ref={respuesta2}
               isReadOnly={paso2Valido != null}
             />
-            <label>&nbsp;)</label>
+            <label>)</label>
             <MathComponent
               tex={ejercicio.result[1][1]}
               display={false}
               style={{ textAlign: "center" }}
             />
-            &nbsp;&nbsp;&nbsp;
-            {paso2Valido == null && (
+          </Center>
+        </WrapItem>
+
+        <Spacer />
+
+        <WrapItem>
+          {paso2Valido == null && (
+            <>
               <Button
                 colorScheme="cyan"
                 variant="outline"
@@ -107,19 +112,15 @@ const FCCpaso2 = ({
               >
                 Aceptar
               </Button>
-            )}
-          </Flex>
-        </WrapItem>
-        <WrapItem>
-          {paso2Valido == null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
+              &nbsp; &nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                setHintsTerminado={setHintsTerminado}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>
-      <br></br>
       {paso2Valido == null && estado}
     </>
   );

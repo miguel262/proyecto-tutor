@@ -48,7 +48,7 @@ const FC = ({ ejercicio }) => {
               <AccordionIcon />
             </AccordionButton>
           </Alert>
-          <AccordionPanel pb={4}>
+          <AccordionPanel style={{ padding: 0 }}>
             <FCpaso1
               ejercicio={ejercicio.steps[0]}
               setPaso1Valido={setPaso1Valido}

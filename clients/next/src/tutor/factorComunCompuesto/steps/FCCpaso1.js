@@ -5,12 +5,11 @@ import {
   Alert,
   AlertIcon,
   Button,
-  Grid,
-  GridItem,
-  Flex,
   Input,
   Wrap,
   WrapItem,
+  Center,
+  Spacer,
 } from "@chakra-ui/react";
 
 const FCCpaso1 = ({
@@ -55,70 +54,74 @@ const FCCpaso1 = ({
 
   return (
     <>
-      <br></br>
-      <Wrap>
-        <WrapItem w={250}>
-          <Flex align="center">
-            <p> &nbsp; &nbsp; </p>
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem padding="5px 0px 10px 0px">
+          <Center>
             <MathComponent
               tex={String.raw`${ejercicio.expression}`}
               display={false}
             />
-          </Flex>
+          </Center>
         </WrapItem>
 
-        <WrapItem w={550}>
-          <label>( </label>
-          <Input
-            style={{
-              textAlign: "center",
-              fontStyle: "italic",
-              fontWeight: "600",
-            }}
-            size="sm"
-            w="23%"
-            focusBorderColor="#9DECF9"
-            placeholder="Ingrese grupo 1"
-            ref={respuesta1}
-            isReadOnly={paso1Valido != null}
-          />
-          <label> )&nbsp;+&nbsp;( </label>
-          <Input
-            style={{
-              textAlign: "center",
-              fontStyle: "italic",
-              fontWeight: "600",
-            }}
-            size="sm"
-            w="23%"
-            focusBorderColor="#9DECF9"
-            placeholder="Ingrese grupo 2"
-            ref={respuesta2}
-            isReadOnly={paso1Valido != null}
-          />
-          <label> )&nbsp;&nbsp;&nbsp; </label>
-          {paso1Valido == null && (
-            <Button
-              colorScheme="cyan"
-              variant="outline"
-              onClick={comparar}
+        <Spacer />
+
+        <WrapItem>
+          <Center>
+            <label>(</label>
+            <Input
+              style={{
+                textAlign: "center",
+                fontStyle: "italic",
+                fontWeight: "600",
+              }}
               size="sm"
-            >
-              Aceptar
-            </Button>
-          )}
+              w={125}
+              focusBorderColor="#9DECF9"
+              placeholder="Ingrese grupo 1"
+              ref={respuesta1}
+              isReadOnly={paso1Valido != null}
+            />
+            <label>)&nbsp;+&nbsp;( </label>
+            <Input
+              style={{
+                textAlign: "center",
+                fontStyle: "italic",
+                fontWeight: "600",
+              }}
+              size="sm"
+              w={125}
+              focusBorderColor="#9DECF9"
+              placeholder="Ingrese grupo 2"
+              ref={respuesta2}
+              isReadOnly={paso1Valido != null}
+            />
+            <label> ) </label>
+          </Center>
         </WrapItem>
+
+        <Spacer />
 
         <WrapItem>
           {paso1Valido === null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
+            <>
+              <Button
+                colorScheme="cyan"
+                variant="outline"
+                onClick={comparar}
+                size="sm"
+              >
+                Aceptar
+              </Button>
+              &nbsp;&nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                setHintsTerminado={setHintsTerminado}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>
-      <br></br>
 
       {paso1Valido == null && estado}
     </>

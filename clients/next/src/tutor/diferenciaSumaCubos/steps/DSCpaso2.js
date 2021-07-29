@@ -5,9 +5,8 @@ import {
   Alert,
   AlertIcon,
   Button,
-  Grid,
-  GridItem,
-  Flex,
+  Center,
+  Spacer,
   Input,
   WrapItem,
   Wrap,
@@ -52,20 +51,20 @@ export const DSCpaso2 = ({
 
   return (
     <>
-      <br></br>
-      <Wrap>
-        <WrapItem w={250}>
-          <Flex align="center">
-            &nbsp; &nbsp;
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem padding="5px 0px 10px 0px">
+          <Center>
             <MathComponent
               tex={String.raw`${ejercicio.expression}`}
               display={false}
             />
-          </Flex>
+          </Center>
         </WrapItem>
 
-        <WrapItem w={550}>
-          <Flex align="center">
+        <Spacer />
+
+        <WrapItem>
+          <Center>
             <label>( </label>
             <Input
               style={{
@@ -74,7 +73,7 @@ export const DSCpaso2 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="23%"
+              w={125}
               focusBorderColor="#9DECF9"
               placeholder="Ingrese factor 1"
               ref={respuesta1}
@@ -88,15 +87,21 @@ export const DSCpaso2 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="23%"
+              w={125}
               focusBorderColor="#9DECF9"
               placeholder="Ingrese factor 2"
               ref={respuesta2}
               isReadOnly={paso2Valido != null}
             />
             <label htmlFor="label3">)</label>
-            &nbsp;&nbsp;&nbsp;
-            {paso2Valido == null && (
+          </Center>
+        </WrapItem>
+
+        <Spacer />
+
+        <WrapItem>
+          {paso2Valido == null && (
+            <>
               <Button
                 colorScheme="cyan"
                 variant="outline"
@@ -105,20 +110,15 @@ export const DSCpaso2 = ({
               >
                 Aceptar
               </Button>
-            )}
-          </Flex>
-        </WrapItem>
-
-        <WrapItem>
-          {paso2Valido == null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
+              &nbsp;&nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                setHintsTerminado={setHintsTerminado}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>
-      <br></br>
       {estado}
     </>
   );

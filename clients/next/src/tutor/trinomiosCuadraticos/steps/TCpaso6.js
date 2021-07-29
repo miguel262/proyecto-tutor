@@ -5,9 +5,8 @@ import {
   Alert,
   AlertIcon,
   Button,
-  Grid,
-  GridItem,
-  Flex,
+  Center,
+  Spacer,
   Input,
   Wrap,
   WrapItem,
@@ -55,20 +54,20 @@ export const TCpaso6 = ({
   };
   return (
     <>
-      <br></br>
-      <Wrap>
-        <WrapItem w={250}>
-          <Flex align="center">
-            &nbsp; &nbsp;
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem padding="8px 0px 10px 0px">
+          <Center>
             <MathComponent
               tex={String.raw`${ejercicio.expression}`}
               display={false}
             />
-          </Flex>
+          </Center>
         </WrapItem>
 
-        <WrapItem w={550}>
-          <Flex align="center">
+        <Spacer />
+
+        <WrapItem>
+          <Center>
             <label>{a !== 1 ? a : ""}(</label>
             <Input
               style={{
@@ -77,7 +76,7 @@ export const TCpaso6 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="25%"
+              w={120}
               focusBorderColor="#9DECF9"
               placeholder="Primer factor"
               ref={respuesta1}
@@ -91,14 +90,21 @@ export const TCpaso6 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="25%"
+              w={120}
               focusBorderColor="#9DECF9"
               placeholder="Segundo factor"
               ref={respuesta2}
               isReadOnly={paso6Valido != null}
             />
-            <label>) &nbsp; &nbsp; &nbsp;</label>
-            {paso6Valido == null && (
+            <label>)</label>
+          </Center>
+        </WrapItem>
+
+        <Spacer />
+
+        <WrapItem>
+          {paso6Valido == null && (
+            <>
               <Button
                 colorScheme="cyan"
                 variant="outline"
@@ -106,21 +112,16 @@ export const TCpaso6 = ({
                 size="sm"
               >
                 Aceptar
-              </Button>
-            )}
-          </Flex>
-        </WrapItem>
-
-        <WrapItem>
-          {paso6Valido == null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
+              </Button>{" "}
+              &nbsp; &nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                setHintsTerminado={setHintsTerminado}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>
-      <br></br>
       {estado}
     </>
   );

@@ -6,12 +6,11 @@ import {
   Alert,
   AlertIcon,
   Button,
-  Grid,
-  GridItem,
-  Flex,
+  Center,
   Input,
   Wrap,
   WrapItem,
+  Spacer,
 } from "@chakra-ui/react";
 
 export const DCpaso1 = ({
@@ -51,20 +50,20 @@ export const DCpaso1 = ({
   };
   return (
     <>
-      <br></br>
-      <Wrap>
-        <WrapItem w={250}>
-          <Flex align="center">
-            <p> &nbsp; &nbsp; </p>
+      <Wrap padding="15px 10px 10px 10px">
+        <WrapItem padding="5px 0px 10px 0px">
+          <Center>
             <MathComponent
               tex={String.raw`${ejercicio.expression}`}
               display={false}
             />
-          </Flex>
+          </Center>
         </WrapItem>
 
-        <WrapItem w={550}>
-          <Flex align="center">
+        <Spacer />
+
+        <WrapItem>
+          <Center>
             <label>( </label>
             <Input
               style={{
@@ -73,13 +72,13 @@ export const DCpaso1 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="18%"
+              w={100}
               focusBorderColor="#9DECF9"
               placeholder="Cuadrado 1"
               ref={respuesta1}
               isReadOnly={paso1Valido != null}
             />
-            <label htmlFor="label2">)²</label>
+            <label>)²</label>
             <label>&nbsp;- ( </label>
             <Input
               style={{
@@ -88,15 +87,21 @@ export const DCpaso1 = ({
                 fontWeight: "600",
               }}
               size="sm"
-              w="18%"
+              w={100}
               focusBorderColor="#9DECF9"
               placeholder="Cuadrado 2"
               ref={respuesta2}
               isReadOnly={paso1Valido != null}
             />
-            <label htmlFor="label3">)²</label>
-            &nbsp;&nbsp;&nbsp;
-            {paso1Valido == null && (
+            <label>)²</label>
+          </Center>
+        </WrapItem>
+
+        <Spacer />
+
+        <WrapItem>
+          {paso1Valido == null && (
+            <>
               <Button
                 colorScheme="cyan"
                 variant="outline"
@@ -105,20 +110,15 @@ export const DCpaso1 = ({
               >
                 Aceptar
               </Button>
-            )}
-          </Flex>
-        </WrapItem>
-
-        <WrapItem>
-          {paso1Valido == null && (
-            <Hint
-              ejercicio={ejercicio.hints}
-              setHintsTerminado={setHintsTerminado}
-            ></Hint>
+              &nbsp;&nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                setHintsTerminado={setHintsTerminado}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>
-      <br></br>
       {paso1Valido == null && estado}
     </>
   );
