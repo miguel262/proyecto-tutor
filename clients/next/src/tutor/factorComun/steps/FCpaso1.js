@@ -11,6 +11,8 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 
+import { TryStep } from "./../../tools/TryStep";
+
 import Hint from "../../tools/Hint";
 
 const FCCpaso1 = ({
@@ -34,6 +36,8 @@ const FCCpaso1 = ({
     //El método some() comprueba si al menos un elemento del array
     //cumple con la condición implementada por la función proporcionada.
     if (correctas.some(valida)) {
+      TryStep(entrada, "Factor Común", ejercicio.stepId, true);
+
       setEstado(
         <Alert status="success">
           <AlertIcon />
@@ -42,6 +46,7 @@ const FCCpaso1 = ({
       );
       setPaso1Valido((paso1Valido = "Terminado"));
     } else {
+      TryStep(entrada, "Factor Común", ejercicio.stepId, false);
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -112,6 +117,8 @@ const FCCpaso1 = ({
               <Hint
                 ejercicio={ejercicio.hints}
                 setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Factor Común"
               ></Hint>
             </>
           )}
