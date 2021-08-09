@@ -23,6 +23,7 @@ export const DCpaso1 = ({
   const respuesta1 = useRef(null);
   const respuesta2 = useRef(null);
   const [estado, setEstado] = useState(null);
+  const [error, setError] = useState(false);
   //let idPasoSiguiente = null;
   const correctas = ejercicio.answers.map((elemento) => elemento.answer);
 
@@ -38,6 +39,7 @@ export const DCpaso1 = ({
         (paso1Valido = ejercicio.answers[correctas.findIndex(valida)].nextStep)
       );
     } else {
+      setError(true);
       //error cuando la entrada es incorrecta
       setEstado(
         //error cuando la entrada es incorrecta
@@ -114,6 +116,10 @@ export const DCpaso1 = ({
               <Hint
                 ejercicio={ejercicio.hints}
                 setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Diferencia de cuadrados"
+                error={error}
+                setError={setError}
               ></Hint>
             </>
           )}

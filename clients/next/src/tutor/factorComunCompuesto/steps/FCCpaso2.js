@@ -23,6 +23,8 @@ const FCCpaso2 = ({
   const respuesta2 = useRef(null);
   const correcta = ejercicio.answers.answer;
   const [estado, setEstado] = useState(null);
+  const [error, setError] = useState(false);
+
   //let idPasoSiguiente = null;
 
   const comparar = () => {
@@ -34,6 +36,8 @@ const FCCpaso2 = ({
     if (entrada[0] === correcta[0] && entrada[1] === correcta[1]) {
       setPaso2Valido((paso2Valido = ejercicio.answers.nextStep));
     } else {
+      setError(true);
+
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -116,6 +120,10 @@ const FCCpaso2 = ({
               <Hint
                 ejercicio={ejercicio.hints}
                 setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Factor Común compuesto "
+                error={error}
+                setError={setError}
               ></Hint>
             </>
           )}

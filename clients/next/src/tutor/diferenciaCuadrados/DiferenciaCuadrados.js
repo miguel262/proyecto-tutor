@@ -48,7 +48,7 @@ const DC = () => {
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
         <AccordionItem isFocusable={false}>
-          <Alert status={paso1Valido == null ? "info" : "success"}>
+          <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 0)) {
@@ -77,7 +77,15 @@ const DC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso2Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso2Valido == null
+                ? paso1Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 1)) {

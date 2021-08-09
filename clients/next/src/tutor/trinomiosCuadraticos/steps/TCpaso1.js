@@ -22,6 +22,8 @@ export const TCpaso1 = ({
 }) => {
   const respuesta1 = useRef(null);
   const [estado, setEstado] = useState(null);
+  const [error, setError] = useState(false);
+
   //let idPasoSiguiente = null;
   const correcta = ejercicio.answers.map((elemento) => elemento.answer);
 
@@ -35,6 +37,7 @@ export const TCpaso1 = ({
         (paso1Valido = ejercicio.answers[correcta.findIndex(valida)].nextStep)
       );
     } else {
+      setError(true);
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -95,6 +98,10 @@ export const TCpaso1 = ({
               <Hint
                 ejercicio={ejercicio.hints}
                 setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Trinomios cuadráticos"
+                error={error}
+                setError={setError}
               ></Hint>
             </>
           )}

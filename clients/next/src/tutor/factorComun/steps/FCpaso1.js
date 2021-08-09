@@ -24,6 +24,7 @@ const FCCpaso1 = ({
 }) => {
   const respuesta = useRef(null);
   const [estado, setEstado] = useState(null);
+  const [error, setError] = useState(false);
   //let idPasoSiguiente = null;
   const correctas = ejercicio.answers.map((elemento) => elemento.answer);
 
@@ -47,6 +48,7 @@ const FCCpaso1 = ({
       setPaso1Valido((paso1Valido = "Terminado"));
     } else {
       TryStep(entrada, "Factor Común", ejercicio.stepId, false);
+      setError(true);
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -119,6 +121,8 @@ const FCCpaso1 = ({
                 setHintsTerminado={setHintsTerminado}
                 stepId={ejercicio.stepId}
                 itemTitle="Factor Común"
+                error={error}
+                setError={setError}
               ></Hint>
             </>
           )}

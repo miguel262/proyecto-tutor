@@ -23,6 +23,8 @@ export const TCpaso6 = ({
   const respuesta1 = useRef(null);
   const respuesta2 = useRef(null);
   const [estado, setEstado] = useState(null);
+  const [error, setError] = useState(false);
+
   const correctas = ejercicio.answers[0].answer;
   const comparar = () => {
     const entrada = [
@@ -43,6 +45,7 @@ export const TCpaso6 = ({
       );
       setPaso6Valido((paso6Valido = "Terminado"));
     } else {
+      setError(true);
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -117,6 +120,10 @@ export const TCpaso6 = ({
               <Hint
                 ejercicio={ejercicio.hints}
                 setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Trinomios cuadráticos"
+                error={error}
+                setError={setError}
               ></Hint>
             </>
           )}

@@ -23,6 +23,9 @@ export const TCpaso3 = ({
   const respuesta = useRef(null);
   //hook para volver a renderizar cuando el estudiante ingrese una respuesta
   const [estado, setEstado] = useState(null);
+
+  const [error, setError] = useState(false);
+
   //resultado correcto (hay que validar para todas las entradas posibles)
   const correcta = ejercicio.answers[0].answer;
   let idPasoSiguiente = null;
@@ -47,6 +50,7 @@ export const TCpaso3 = ({
                 </div>
             );*/
     } else {
+      setError(true);
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -107,6 +111,10 @@ export const TCpaso3 = ({
               <Hint
                 ejercicio={ejercicio.hints}
                 setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Trinomios cuadráticos"
+                error={error}
+                setError={setError}
               ></Hint>
             </>
           )}

@@ -52,7 +52,7 @@ const FCC = () => {
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
         <AccordionItem isFocusable={false}>
-          <Alert status={paso1Valido == null ? "info" : "success"}>
+          <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 0)) {
@@ -81,7 +81,15 @@ const FCC = () => {
         </AccordionItem>
 
         <AccordionItem isFocusable={true}>
-          <Alert status={paso2Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso2Valido == null
+                ? paso1Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 1)) {
@@ -112,7 +120,15 @@ const FCC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso3Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso3Valido == null
+                ? paso2Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 2)) {

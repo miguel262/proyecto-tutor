@@ -45,9 +45,10 @@ const DSC = () => {
       <Wrap justify="center">
         <MathComponent tex={ejercicio.steps[0].expression} display={true} />
       </Wrap>
+
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
         <AccordionItem isFocusable={false}>
-          <Alert status={paso1Valido == null ? "info" : "success"}>
+          <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 0)) {
@@ -77,7 +78,15 @@ const DSC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso2Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso2Valido == null
+                ? paso1Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 1)) {
@@ -107,31 +116,6 @@ const DSC = () => {
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
-      {/*<Accordion defaultActiveKey="0">
-                <Card bg={paso1Valido==null?"secondary":"success"} style={{padding: 0}}>
-                    <Accordion.Toggle as={Card.Header} eventKey={paso1Valido==null?"0":"1"}>
-                        {ejercicio.steps[0].step}
-                        {paso1Valido!=null&&"    ✔ "}
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey={paso1Valido==null?"0":"1"} style={{padding: 1}}>
-                    <Card.Body style={{padding: 0}}>
-                        <DSCpaso1 ejercicio={ejercicio.steps[0]} setPaso1Valido={setPaso1Valido} paso1Valido={paso1Valido} signo={ejercicio.sign} hintsTerminado={hintsTerminado} setHintsTerminado={setHintsTerminado}></DSCpaso1>
-                    </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-
-                <Card bg={paso2Valido==null?"secondary":"success"} style={{padding: 0}}>
-                    <Accordion.Toggle as={Card.Header} eventKey={paso1Valido!=null?"0":"1"}>
-                        {ejercicio.steps[1].step}
-                        {paso2Valido!=null&&"    ✔ "}
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey={paso1Valido!=null?"0":"1"} style={{padding: 1}}>
-                    <Card.Body style={{padding: 0}}>
-                        {paso1Valido!=null&&<DSCpaso2 ejercicio={ejercicio.steps[paso1Valido]} setPaso2Valido={setPaso2Valido} paso2Valido={paso2Valido} hintsTerminado={hintsTerminado2} setHintsTerminado={setHintsTerminado2}></DSCpaso2>}
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-        </Accordion>*/}
     </div>
   );
 };

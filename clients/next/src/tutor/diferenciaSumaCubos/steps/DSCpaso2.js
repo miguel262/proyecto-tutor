@@ -23,6 +23,8 @@ export const DSCpaso2 = ({
   const respuesta2 = useRef(null);
   const correcta = ejercicio.answers[0].answer;
   const [estado, setEstado] = useState(null);
+  const [error, setError] = useState(false);
+
   const comparar = () => {
     const entrada = [
       respuesta1.current.value.replace(/[*]| /g, "").toLowerCase(),
@@ -39,6 +41,7 @@ export const DSCpaso2 = ({
         // <MathComponent tex={ejercicio.result} display={false} />
       );
     } else {
+      setError(true);
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -114,6 +117,10 @@ export const DSCpaso2 = ({
               <Hint
                 ejercicio={ejercicio.hints}
                 setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Diferencia/suma de cubos"
+                error={error}
+                setError={setError}
               ></Hint>
             </>
           )}

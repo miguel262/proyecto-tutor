@@ -38,7 +38,7 @@ const FC = ({ ejercicio }) => {
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
         <AccordionItem>
-          <Alert status={paso1Valido == null ? "info" : "success"}>
+          <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 0)) {

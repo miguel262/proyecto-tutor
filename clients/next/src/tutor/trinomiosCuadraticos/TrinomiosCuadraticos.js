@@ -89,7 +89,7 @@ const TC = () => {
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
         <AccordionItem isFocusable={false}>
-          <Alert status={paso1Valido == null ? "info" : "success"}>
+          <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 0)) {
@@ -118,7 +118,15 @@ const TC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso2Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso2Valido == null
+                ? paso1Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 1)) {
@@ -149,7 +157,15 @@ const TC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso3Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso3Valido == null
+                ? paso2Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 2)) {
@@ -180,7 +196,15 @@ const TC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso4Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso4Valido == null
+                ? paso3Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 3)) {
@@ -211,7 +235,15 @@ const TC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso5Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso5Valido == null
+                ? paso4Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 4)) {
@@ -242,7 +274,15 @@ const TC = () => {
         </AccordionItem>
 
         <AccordionItem>
-          <Alert status={paso6Valido == null ? "info" : "success"}>
+          <Alert
+            colorScheme={
+              paso6Valido == null
+                ? paso5Valido == null
+                  ? "gray"
+                  : "blue"
+                : "green"
+            }
+          >
             <AccordionButton
               onClick={() => {
                 if (index.some((element) => element === 5)) {
