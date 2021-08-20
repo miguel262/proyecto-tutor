@@ -17,7 +17,7 @@ import { BellIcon } from "@chakra-ui/icons";
 
 const Hint = ({
   ejercicio,
-  setHintsTerminado,
+  //setHintsTerminado,
   stepId,
   itemTitle,
   error,

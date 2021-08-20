@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio1 } from "./EjerciciosDC";
+import { Ejercicio3 } from "./EjerciciosDC";
 import { MathComponent } from "../../components/MathJax";
 //import { Accordion,Card } from 'react-bootstrap';
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { DCpaso1 } from "./steps/DCpaso1";
 import { DCpaso2 } from "./steps/DCpaso2";
+import { DCabstract } from "../tools/Abstracts";
 
 import {
   Accordion,
@@ -15,6 +16,7 @@ import {
   Box,
   Alert,
   Wrap,
+  Center,
 } from "@chakra-ui/react";
 
 //react functional component
@@ -23,6 +25,7 @@ const DC = () => {
   const ejercicio = Ejercicio1;
   const [paso1Valido, setPaso1Valido] = useState(null);
   const [paso2Valido, setPaso2Valido] = useState(null);
+
   const [hintsTerminado, setHintsTerminado] = useState(null);
   const [hintsTerminado2, setHintsTerminado2] = useState(null);
 
@@ -59,8 +62,16 @@ const DC = () => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[0].step}
-                {paso1Valido != null && "    ✔ "}
+                <Wrap>
+                  <Center>
+                    {ejercicio.steps[0].step}&nbsp;&nbsp;
+                    <MathComponent tex={String.raw`x_{1}`} display={false} />
+                    &nbsp; y&nbsp;&nbsp;
+                    <MathComponent tex={String.raw`x_{2}`} display={false} />
+                    &nbsp;&nbsp;
+                    {paso1Valido != null && "✔ "}
+                  </Center>
+                </Wrap>
               </Box>
               <AccordionIcon />
             </AccordionButton>
@@ -96,8 +107,17 @@ const DC = () => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[1].step}
-                {paso2Valido != null && "    ✔ "}
+                <Wrap>
+                  <Center>
+                    {ejercicio.steps[1].step}&nbsp;&nbsp;
+                    <MathComponent
+                      tex={String.raw`(x_{1}+x_{2})(x_{1}-x_{2})`}
+                      display={false}
+                    />
+                    (x₁ + x₂)(x₁ - x₂) &nbsp;&nbsp;
+                    {paso2Valido != null && "✔ "}
+                  </Center>
+                </Wrap>
               </Box>
               <AccordionIcon />
             </AccordionButton>
@@ -111,6 +131,12 @@ const DC = () => {
                 hintsTerminado={hintsTerminado2}
                 setHintsTerminado={setHintsTerminado2}
               ></DCpaso2>
+            )}
+            {paso2Valido != null && (
+              <DCabstract
+                step1={ejercicio.steps[0]}
+                step2={ejercicio.steps[1]}
+              />
             )}
           </AccordionPanel>
         </AccordionItem>

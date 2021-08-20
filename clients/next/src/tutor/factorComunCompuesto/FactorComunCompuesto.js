@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio1 } from "./EjerciciosFCC";
+import { Ejercicio2 } from "./EjerciciosFCC";
 import { MathComponent } from "../../components/MathJax";
 import FCCpaso1 from "./steps/FCCpaso1";
 import FCCpaso2 from "./steps/FCCpaso2";
 import FCpaso1 from "../factorComun/steps/FCpaso1";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
+import { FCCabstract } from "../tools/Abstracts";
 import {
   Accordion,
   AccordionItem,
@@ -17,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 const FCC = () => {
-  const ejercicio = Ejercicio1;
+  const ejercicio = Ejercicio2;
   const [paso1Valido, setPaso1Valido] = useState(null);
   const [paso2Valido, setPaso2Valido] = useState(null);
   const [paso3Valido, setPaso3Valido] = useState(null);
@@ -154,6 +155,13 @@ const FCC = () => {
                 hintsTerminado={hintsTerminado3}
                 setHintsTerminado={setHintsTerminado3}
               ></FCpaso1>
+            )}
+            {paso3Valido != null && (
+              <FCCabstract
+                ejercicio={ejercicio.steps[0]}
+                ejercicio1={ejercicio.steps[1]}
+                ejercicio2={ejercicio.steps[2]}
+              />
             )}
           </AccordionPanel>
         </AccordionItem>

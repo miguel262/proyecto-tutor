@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio1 } from "./EjerciciosDSC";
+import { Ejercicio2 } from "./EjerciciosDSC";
 import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { DSCpaso1 } from "./steps/DSCpaso1";
 import { DSCpaso2 } from "./steps/DSCpaso2";
+import { DSCabstract } from "../tools/Abstracts";
 import {
   Accordion,
   AccordionItem,
@@ -13,6 +14,7 @@ import {
   Box,
   Alert,
   Wrap,
+  Center,
 } from "@chakra-ui/react";
 
 //react functional component
@@ -59,8 +61,16 @@ const DSC = () => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[0].step}
-                {paso1Valido != null && "    ✔ "}
+                <Wrap>
+                  <Center>
+                    {ejercicio.steps[0].step}&nbsp;&nbsp;
+                    <MathComponent tex={String.raw`x_{1}`} display={false} />
+                    &nbsp; y&nbsp;&nbsp;
+                    <MathComponent tex={String.raw`x_{2}`} display={false} />
+                    &nbsp;&nbsp;
+                    {paso1Valido != null && "    ✔ "}
+                  </Center>
+                </Wrap>
               </Box>
               <AccordionIcon />
             </AccordionButton>
@@ -97,8 +107,25 @@ const DSC = () => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[1].step}
-                {paso2Valido != null && "    ✔ "}
+                <Wrap>
+                  <Center>
+                    {ejercicio.steps[1].step}
+                    &nbsp;&nbsp;
+                    {ejercicio.sign === "-" ? (
+                      <MathComponent
+                        tex={String.raw`(x_{1}-x_{2})(x_{1}^2+x_{1}x_{2}+x_{2}^2)`}
+                        display={false}
+                      />
+                    ) : (
+                      <MathComponent
+                        tex={String.raw`(x_{1}+x_{2})(x_{1}^2-x_{1}x_{2}+x_{2}^2)`}
+                        display={false}
+                      />
+                    )}
+                    &nbsp;&nbsp;
+                    {paso2Valido != null && "    ✔ "}
+                  </Center>
+                </Wrap>
               </Box>
               <AccordionIcon />
             </AccordionButton>
@@ -112,6 +139,13 @@ const DSC = () => {
                 hintsTerminado={hintsTerminado2}
                 setHintsTerminado={setHintsTerminado2}
               ></DSCpaso2>
+            )}
+            {paso2Valido != null && (
+              <DSCabstract
+                step1={ejercicio.steps[0]}
+                step2={ejercicio.steps[1]}
+                sign={ejercicio.sign}
+              />
             )}
           </AccordionPanel>
         </AccordionItem>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio2 } from "./EjerciciosTC";
+import { Ejercicio1 } from "./EjerciciosTC";
 import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { TCpaso1 } from "./steps/TCpaso1";
@@ -8,7 +8,7 @@ import { TCpaso3 } from "./steps/TCpaso3";
 import { TCpaso4 } from "./steps/TCpaso4";
 import { TCpaso5 } from "./steps/TCpaso5";
 import { TCpaso6 } from "./steps/TCpaso6";
-
+import { TCabstract } from "../tools/Abstracts";
 import {
   Accordion,
   AccordionItem,
@@ -310,52 +310,19 @@ const TC = () => {
                 a={ejercicio.steps[0].answers[0].answer}
               ></TCpaso6>
             )}
+            {paso6Valido != null && (
+              <TCabstract
+                step1={ejercicio.steps[0]}
+                step2={ejercicio.steps[1]}
+                step3={ejercicio.steps[2]}
+                step4={ejercicio.steps[3]}
+                step5={ejercicio.steps[4]}
+                step6={ejercicio.steps[5]}
+              />
+            )}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
-      {/*            
-
-
-                <Card bg={paso4Valido==null?"secondary":"success"} style={{padding: 0}}>
-                    <Accordion.Toggle as={Card.Header} eventKey={paso3Valido!=null?(paso4Valido!=null?"4":"0"):"4"}>
-                        {ejercicio.steps[3].step}
-                        {paso4Valido!=null&&"    ✔ "}
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey={paso3Valido!=null?(paso4Valido!=null?"4":"0"):"4"} style={{padding: 1}}>
-                    <Card.Body style={{padding: 0}}>
-                    {//paso3Valido!=null&&<TCpaso4 ejercicio={ejercicio.pasos[3]} setPaso4Valido={setPaso4Valido} paso4Valido={paso4Valido}></TCpaso4>}
-                    }
-                    </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-
-                <Card bg={paso5Valido==null?"secondary":"success"} style={{padding: 0}}>
-                    <Accordion.Toggle as={Card.Header} eventKey={paso4Valido!=null?(paso5Valido!=null?"5":"0"):"5"}>
-                        {ejercicio.steps[4].step}
-                        {paso5Valido!=null&&"    ✔ "}
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey={paso4Valido!=null?(paso5Valido!=null?"5":"0"):"5"} style={{padding: 1}}>
-                    <Card.Body style={{padding: 0}}>
-                    {//paso4Valido!=null&&<TCpaso5 ejercicio={ejercicio.pasos[4]} setPaso5Valido={setPaso5Valido} paso5Valido={paso5Valido} hintsTerminado={hintsTerminado5} setHintsTerminado={setHintsTerminado5}></TCpaso5>}
-}
-                    </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-
-                <Card bg={paso6Valido==null?"secondary":"success"} style={{padding: 0}}>
-                    <Accordion.Toggle as={Card.Header} eventKey={paso5Valido!=null?"0":"6"}>
-                        {ejercicio.steps[5].step}
-                        {paso6Valido!=null&&"    ✔ "}
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey={paso5Valido!=null?"0":"6"} style={{padding: 1}}>
-                    <Card.Body style={{padding: 0}}>
-                    {//paso5Valido!=null&&<TCpaso6 ejercicio={ejercicio.pasos[5]} setPaso6Valido={setPaso6Valido} paso6Valido={paso6Valido} hintsTerminado={hintsTerminado6} setHintsTerminado={setHintsTerminado6}></TCpaso6>}
-                    }
-                    </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-            </Accordion>
-                */}
     </div>
   );
 };

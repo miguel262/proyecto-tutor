@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import FCpaso1 from "./steps/FCpaso1";
 import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
+import { Loading } from "../tools/Spinner";
 
 import {
   Accordion,
@@ -17,12 +18,16 @@ import {
 } from "@chakra-ui/react";
 
 import { ClickStepTab } from "./../tools/ClickStepTab";
+import { FCabstract } from "../tools/Abstracts";
 
 const FC = ({ ejercicio }) => {
   //const ejercicio=Ejercicio1;
   const [paso1Valido, setPaso1Valido] = useState(null);
-  const [hintsTerminado, setHintsTerminado] = useState(null);
+  //const [hintsTerminado, setHintsTerminado] = useState(null);
   const [index, setIndex] = useState([0]);
+
+  const [loading, setLoading] = useState(true);
+  const change = () => setLoading(false);
 
   return (
     <div>
@@ -33,7 +38,12 @@ const FC = ({ ejercicio }) => {
 
       {ejercicio.text}
       <Wrap justify="center">
-        <MathComponent tex={ejercicio.steps[0].expression} display={true} />
+        {loading && <Loading />}
+        <MathComponent
+          tex={ejercicio.steps[0].expression}
+          display={true}
+          onSuccess={change}
+        />
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
@@ -66,12 +76,17 @@ const FC = ({ ejercicio }) => {
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            <FCpaso1
-              ejercicio={ejercicio.steps[0]}
-              setPaso1Valido={setPaso1Valido}
-              paso1Valido={paso1Valido}
-              setHintsTerminado={setHintsTerminado}
-            ></FCpaso1>
+            <>
+              <FCpaso1
+                ejercicio={ejercicio.steps[0]}
+                setPaso1Valido={setPaso1Valido}
+                paso1Valido={paso1Valido}
+                // setHintsTerminado={setHintsTerminado}
+              ></FCpaso1>
+              {paso1Valido != null && (
+                <FCabstract ejercicio={ejercicio.steps[0]} />
+              )}
+            </>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

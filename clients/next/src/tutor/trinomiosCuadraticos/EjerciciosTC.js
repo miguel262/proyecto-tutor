@@ -37,9 +37,9 @@ export const Ejercicio1 = {
     {
       stepId: "2",
       expression: "a=1, b=8, c=12",
-      step: "Paso 3: calcular discriminante",
+      step: "Paso 3: calcular discriminante Δ = b²-4ac",
       //explicacion:"utilice la fórmula Δ= b^2-4ac, donde a es el término que acompaña al cuadrado, b es el término que acompaña a la variable y c es el valor de la constante",
-      result: "Δ=16",
+      result: "Δ=b²-4ac=16",
       //hint_solicitado:["reemplace en la fórmula Δ por: a=1, b=8 y c=12",
       //"","el valor del discriminante es 16"],
       hints: [
@@ -57,7 +57,8 @@ export const Ejercicio1 = {
       expression: "Δ=16",
       step: "Paso 4: ¿a que caso corresponde el discriminante?",
       //explicacion:"Si el discriminante es mayor a 0 se puede factorizar y sus raices son diferentes, si es igual a 0 las dos raíces son iguales y si el discriminante es menor a 0, no es posible factorizar, por lo que tiene raices complejas",
-      result: "Este ejercicio posee 2 raíces diferentes, Δ>0",
+      result:
+        "Este ejercicio posee 2 raíces diferentes, Δ>0 (Factorizable con diferentes raices)",
       answers: [{ answer: "1", nextStep: "4" }],
       error: "caso mal ingresado",
       validation: "Haz descubierto a que caso corresponde el discriminante",
@@ -65,7 +66,7 @@ export const Ejercicio1 = {
     {
       stepId: "4",
       expression: "Δ = 16, a = 1, b = 8, c = 12 ",
-      step: "Paso 5: Calcular los valores de x1 y x2",
+      step: "Paso 5: Calcular raices x1 y x2",
       formula: [
         "x_{1}=\\frac{-b+\\sqrt{Δ}}{2a}",
         "x_{2}=\\frac{-b-\\sqrt{Δ}}{2a}",
@@ -149,15 +150,18 @@ export const Ejercicio2 = {
     {
       stepId: "2",
       expression: "a=3, b=8, c=-11",
-      step: "Paso 3: calcular discriminante",
+      step: "Paso 3: calcular discriminante utilizando la fórmula  Δ = b² - 4ac",
       //explicacion:"utilice la fórmula Δ= b^2-4ac, donde a es el término que acompaña al cuadrado, b es el término que acompaña a la variable y c es el valor de la constante",
       result: "Δ=196",
       //hint_solicitado:["reemplace en la fórmula Δ por: a=1, b=8 y c=12",
       //"","el valor del discriminante es 16"],
       hints: [
-        { hintId: 0, hint: "Reemplace en la fórmula Δ por: a=3, b=8 y c=-11" },
-        { hintId: 1, hint: "Δ = b²-4ac" },
-        { hintId: 2, hint: "El valor del discriminante es 196" },
+        {
+          hintId: 0,
+          hint: "Utilice la fórmula para calcular Δ usando los coeficientes de la expresión cuadrática",
+        },
+        { hintId: 1, hint: "Reemplace en la fórmula Δ por: a=3, b=8 y c=-11" },
+        { hintId: 2, hint: "El valor del discriminante (Δ) es 196" },
       ],
       answers: [{ answer: "196", nextStep: "3" }],
       error:
@@ -169,7 +173,19 @@ export const Ejercicio2 = {
       expression: "Δ=196",
       step: "Paso 4: ¿a que caso corresponde el discriminante?",
       //explicacion:"Si el discriminante es mayor a 0 se puede factorizar y sus raices son diferentes, si es igual a 0 las dos raíces son iguales y si el discriminante es menor a 0, no es posible factorizar, por lo que tiene raices complejas",
-      result: "Este ejercicio posee 2 raíces diferentes, Δ>0",
+      result:
+        "Este ejercicio posee 2 raíces diferentes, Δ>0 (Factorizable con diferentes raices)",
+      hints: [
+        {
+          hintId: 0,
+          hint: "Recuerda que el discriminante determina si el trinomio tiene soluciones",
+        },
+        {
+          hintId: 1,
+          hint: "Como el determinante es mayor a cero, ver a qué caso corresponde",
+        },
+        { hintId: 2, hint: "Este ejercicio posee 2 raíces diferentes, Δ>0" },
+      ],
       answers: [{ answer: "1", nextStep: "4" }],
       error: "caso mal ingresado",
       validation: "Haz descubierto a que caso corresponde el discriminante",
@@ -199,7 +215,7 @@ export const Ejercicio2 = {
       expression: "x_{1}=1, x_{2}=-11/3",
       step: "Paso 6: Ingresar factorización por trinomios cuadráticos",
       //explicacion:"",
-      result: "(x-1)(3x+11)",
+      result: "3(x-1)(x+11/3)",
       //hint_solicitado:["hint 1","hint 2","(x+2)(x+6)"],
       hints: [
         { hintId: 0, hint: "Los factores a ingresar son restas" },

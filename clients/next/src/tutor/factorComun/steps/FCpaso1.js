@@ -12,15 +12,14 @@ import {
 } from "@chakra-ui/react";
 
 import { TryStep } from "./../../tools/TryStep";
-
 import Hint from "../../tools/Hint";
 
 const FCCpaso1 = ({
   ejercicio,
   setPaso1Valido,
   paso1Valido,
-  hintsTerminado,
-  setHintsTerminado,
+  //hintsTerminado,
+  //setHintsTerminado,
 }) => {
   const respuesta = useRef(null);
   const [estado, setEstado] = useState(null);
@@ -40,10 +39,12 @@ const FCCpaso1 = ({
       TryStep(entrada, "Factor Común", ejercicio.stepId, true);
 
       setEstado(
-        <Alert status="success">
-          <AlertIcon />
-          {ejercicio.validation}
-        </Alert>
+        <>
+          <Alert status="success">
+            <AlertIcon />
+            {ejercicio.validation}
+          </Alert>
+        </>
       );
       setPaso1Valido((paso1Valido = "Terminado"));
     } else {
@@ -118,7 +119,7 @@ const FCCpaso1 = ({
               &nbsp;&nbsp;
               <Hint
                 ejercicio={ejercicio.hints}
-                setHintsTerminado={setHintsTerminado}
+                //setHintsTerminado={setHintsTerminado}
                 stepId={ejercicio.stepId}
                 itemTitle="Factor Común"
                 error={error}

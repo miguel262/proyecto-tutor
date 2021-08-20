@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Hint from "../../tools/Hint";
 import {
   Alert,
   AlertIcon,
@@ -16,10 +16,13 @@ export const TCpaso4 = ({ ejercicio, setPaso4Valido, paso4Valido }) => {
   let idPasoSiguiente = null;
   const [estado, setEstado] = useState(null);
   const [value, setValue] = React.useState(); //checked radio
+  const [error, setError] = useState(false);
+
   const comparar = () => {
     if (ejercicio.answers[0].answer === value) {
       setPaso4Valido((paso4Valido = ejercicio.answers[0].nextStep));
     } else {
+      setError(true);
       setEstado(
         //error cuando la entrada es incorrecta
         <Alert status="error">
@@ -52,14 +55,25 @@ export const TCpaso4 = ({ ejercicio, setPaso4Valido, paso4Valido }) => {
 
         <WrapItem padding="25px 0px 0px 70px">
           {paso4Valido == null && (
-            <Button
-              colorScheme="cyan"
-              variant="outline"
-              onClick={comparar}
-              size="sm"
-            >
-              Aceptar
-            </Button>
+            <>
+              <Button
+                colorScheme="cyan"
+                variant="outline"
+                onClick={comparar}
+                size="sm"
+              >
+                Aceptar
+              </Button>
+              &nbsp;&nbsp;
+              <Hint
+                ejercicio={ejercicio.hints}
+                //setHintsTerminado={setHintsTerminado}
+                stepId={ejercicio.stepId}
+                itemTitle="Trinomios cuadráticos"
+                error={error}
+                setError={setError}
+              ></Hint>
+            </>
           )}
         </WrapItem>
       </Wrap>

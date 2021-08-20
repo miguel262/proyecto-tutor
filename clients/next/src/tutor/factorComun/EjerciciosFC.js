@@ -13,7 +13,7 @@ export const Ejercicio1 = {
       hints: [
         {
           hintId: 0,
-          hint: "Un factor común de esta expresión es 3, pero todavía es factorizable",
+          hint: "identificar un factor que se repita en todos los términos de la expresión dada. Un factor común de esta expresión es 3, pero todavía es factorizable",
         },
         {
           hintId: 1,
@@ -43,8 +43,7 @@ export const Ejercicio2 = {
       expression:
         "\\frac{5x^6}{3y^2} - \\frac{10x^2}{21y}- \\frac{20x^3}{9y^4}",
       step: "Ingrese el factor común de la siguiente expresión: ",
-      result:
-        "( \\frac{5x^2}{3y} )( \\frac{x^4}{y} - \\frac{2}{7} - \\frac{4x}{3y^3} )",
+      result: "( \\frac{x^4}{y} - \\frac{2}{7} - \\frac{4x}{3y^3} )",
       hints: [
         {
           hintId: 0,
@@ -57,6 +56,7 @@ export const Ejercicio2 = {
         { hintId: 2, hint: "El factor común de la expresión es (5x^2)/(3y)" },
       ],
       answers: [
+        { answer: "\\frac{5x^2}{3y}", nextStep: null },
         { answer: "(5x^2)/(3y)", nextStep: null },
         { answer: "5x^2/(3y)", nextStep: null },
       ],
@@ -76,7 +76,7 @@ export const Ejercicio3 = {
       stepId: 0,
       expression: "2x^2y+3x^2z",
       step: "Ingrese el factor común de la siguiente expresión: ",
-      result: "(x^2)(2y+3z)",
+      result: "(2y+3z)",
       hints: [
         {
           hintId: 0,
@@ -102,7 +102,7 @@ export const Ejercicio4 = {
       stepId: 0,
       expression: "12x+18y-24z",
       step: "Ingrese el factor común de la siguiente expresión: ",
-      result: "(6)(2x+3y-4z)",
+      result: "(2x+3y-4z)",
       hints: [
         {
           hintId: 0,
@@ -132,7 +132,7 @@ export const Ejercicio5 = {
       stepId: 0,
       expression: "\\frac{x^{20}}{20} + \\frac{x^{10}}{10} - \\frac{x^5}{5}",
       step: "Ingrese el factor común de la siguiente expresión: ",
-      result: "(\\frac{x^5}{5})(\\frac{x^15}{4} + \\frac{x^5}{2} - 1)",
+      result: "(\\frac{x^{15}}{4} + \\frac{x^5}{2} - 1)",
       hints: [
         {
           hintId: 0,
@@ -146,6 +146,7 @@ export const Ejercicio5 = {
       ],
       //entrada:["x^5/5","(x^5)/5","(x^5)/(5)"],
       answers: [
+        { answer: "\\frac{x^5}{5}", nextStep: null },
         { answer: "x^5/5", nextStep: null },
         { answer: "(x^5)/5", nextStep: null },
         { answer: "(x^5)/(5)", nextStep: null },
@@ -167,7 +168,7 @@ export const Ejercicio6 = {
       stepId: 0,
       expression: "10y^5-30xy^5-15xy^6",
       step: "Ingrese el factor común de la siguiente expresión: ",
-      result: "(5y^5)(2-6x-3xy)",
+      result: "(2-6x-3xy)",
       hints: [
         {
           hintId: 0,
@@ -197,7 +198,7 @@ export const Ejercicio7 = {
       stepId: 0,
       expression: "6x^2yz-30xy^2z^2+12x^2y^2z^2",
       step: "Ingrese el factor común de la siguiente expresión: ",
-      result: "(6xyz)(x-5yz+2xyz)",
+      result: "(x-5yz+2xyz)",
       hints: [
         {
           hintId: 0,
