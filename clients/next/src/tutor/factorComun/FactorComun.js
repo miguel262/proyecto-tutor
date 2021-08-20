@@ -81,6 +81,7 @@ const FC = ({ ejercicio }) => {
                 ejercicio={ejercicio.steps[0]}
                 setPaso1Valido={setPaso1Valido}
                 paso1Valido={paso1Valido}
+                loading={loading}
                 // setHintsTerminado={setHintsTerminado}
               ></FCpaso1>
               {paso1Valido != null && (

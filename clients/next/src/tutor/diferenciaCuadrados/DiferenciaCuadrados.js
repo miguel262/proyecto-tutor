@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio3 } from "./EjerciciosDC";
+import { Ejercicio1 } from "./EjerciciosDC";
 import { MathComponent } from "../../components/MathJax";
 //import { Accordion,Card } from 'react-bootstrap';
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { DCpaso1 } from "./steps/DCpaso1";
 import { DCpaso2 } from "./steps/DCpaso2";
 import { DCabstract } from "../tools/Abstracts";
+import { Loading } from "../tools/Spinner";
 
 import {
   Accordion,
@@ -37,6 +38,9 @@ const DC = () => {
     }
   }, [paso1Valido]);
 
+  const [loading, setLoading] = useState(true);
+  const change = () => setLoading(false);
+
   return (
     <>
       <BreadcrumbTutor
@@ -46,7 +50,12 @@ const DC = () => {
 
       {ejercicio.text}
       <Wrap justify="center">
-        <MathComponent tex={ejercicio.steps[0].expression} display={true} />
+        {loading && <Loading />}
+        <MathComponent
+          tex={ejercicio.steps[0].expression}
+          display={true}
+          onSuccess={change}
+        />
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
@@ -83,6 +92,7 @@ const DC = () => {
               paso1Valido={paso1Valido}
               hintsTerminado={hintsTerminado}
               setHintsTerminado={setHintsTerminado}
+              loading={loading}
             ></DCpaso1>
           </AccordionPanel>
         </AccordionItem>
@@ -114,7 +124,7 @@ const DC = () => {
                       tex={String.raw`(x_{1}+x_{2})(x_{1}-x_{2})`}
                       display={false}
                     />
-                    (x₁ + x₂)(x₁ - x₂) &nbsp;&nbsp;
+                    &nbsp;&nbsp;
                     {paso2Valido != null && "✔ "}
                   </Center>
                 </Wrap>

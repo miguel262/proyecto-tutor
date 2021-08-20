@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio2 } from "./EjerciciosDSC";
+import { Ejercicio1 } from "./EjerciciosDSC";
 import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { DSCpaso1 } from "./steps/DSCpaso1";
 import { DSCpaso2 } from "./steps/DSCpaso2";
 import { DSCabstract } from "../tools/Abstracts";
+import { Loading } from "../tools/Spinner";
 import {
   Accordion,
   AccordionItem,
@@ -33,6 +34,9 @@ const DSC = () => {
     }
   }, [paso1Valido]);
 
+  const [loading, setLoading] = useState(true);
+  const change = () => setLoading(false);
+
   return (
     <div>
       {/*
@@ -45,7 +49,12 @@ const DSC = () => {
 
       {ejercicio.text}
       <Wrap justify="center">
-        <MathComponent tex={ejercicio.steps[0].expression} display={true} />
+        {loading && <Loading />}
+        <MathComponent
+          tex={ejercicio.steps[0].expression}
+          display={true}
+          onSuccess={change}
+        />
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
@@ -83,6 +92,7 @@ const DSC = () => {
               signo={ejercicio.sign}
               hintsTerminado={hintsTerminado}
               setHintsTerminado={setHintsTerminado}
+              loading={loading}
             ></DSCpaso1>
           </AccordionPanel>
         </AccordionItem>

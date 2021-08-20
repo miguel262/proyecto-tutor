@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio1 } from "./EjerciciosTC";
+import { Ejercicio2 } from "./EjerciciosTC";
 import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { TCpaso1 } from "./steps/TCpaso1";
@@ -9,6 +9,8 @@ import { TCpaso4 } from "./steps/TCpaso4";
 import { TCpaso5 } from "./steps/TCpaso5";
 import { TCpaso6 } from "./steps/TCpaso6";
 import { TCabstract } from "../tools/Abstracts";
+import { Loading } from "../tools/Spinner";
+
 import {
   Accordion,
   AccordionItem,
@@ -72,6 +74,9 @@ const TC = () => {
     }
   }, [paso5Valido]);
 
+  const [loading, setLoading] = useState(true);
+  const change = () => setLoading(false);
+
   return (
     <div>
       {/*Ejemplo diferencia de cubos 
@@ -84,7 +89,12 @@ const TC = () => {
 
       {ejercicio.text}
       <Wrap justify="center">
-        <MathComponent tex={ejercicio.steps[0].expression} display={true} />
+        {loading && <Loading />}
+        <MathComponent
+          tex={ejercicio.steps[0].expression}
+          display={true}
+          onSuccess={change}
+        />
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
@@ -113,6 +123,7 @@ const TC = () => {
               paso1Valido={paso1Valido}
               hintsTerminado={hintsTerminado}
               setHintsTerminado={setHintsTerminado}
+              loading={loading}
             ></TCpaso1>
           </AccordionPanel>
         </AccordionItem>

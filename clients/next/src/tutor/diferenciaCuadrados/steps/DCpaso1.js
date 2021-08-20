@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Hint from "../../tools/Hint";
 import { MathComponent } from "../../../components/MathJax";
+import { Loading } from "../../tools/Spinner";
 
 import {
   Alert,
@@ -19,6 +20,7 @@ export const DCpaso1 = ({
   paso1Valido,
   hintsTerminado,
   setHintsTerminado,
+  loading,
 }) => {
   const respuesta1 = useRef(null);
   const respuesta2 = useRef(null);
@@ -55,6 +57,7 @@ export const DCpaso1 = ({
       <Wrap padding="15px 10px 10px 10px">
         <WrapItem padding="5px 0px 10px 0px">
           <Center>
+            {loading && <Loading />}
             <MathComponent
               tex={String.raw`${ejercicio.expression}`}
               display={false}

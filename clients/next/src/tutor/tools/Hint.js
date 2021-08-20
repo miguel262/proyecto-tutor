@@ -23,21 +23,25 @@ const Hint = ({
   error,
   setError,
 }) => {
-  const [i, setI] = useState(0);
+  const [i, setI] = useState(0); //para los hints
   const [lista] = useState([ejercicio[0]]);
   const [j, setJ] = useState(0); //para los botones
+  const [firstStep, setFirstStep] = useState(false);
   //let lista = [ejercicio[0]];
 
   const ayuda = () => {
-    if ((ejercicio.length > lista.length) & error) {
+    if ((ejercicio.length > lista.length) & error & firstStep) {
       //setI(i + 1);
+
       lista.push(ejercicio[i + 1]);
-      console.log(lista);
-      console.log(ejercicio);
+      //console.log(lista);
+      //console.log(ejercicio);
+
       setI(i + 1);
       setJ(i + 1);
       //lista.push(ejercicio[i]);
     }
+    setFirstStep(true);
     setError(false);
   };
 

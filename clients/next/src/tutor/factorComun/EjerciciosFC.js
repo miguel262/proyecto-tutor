@@ -13,11 +13,11 @@ export const Ejercicio1 = {
       hints: [
         {
           hintId: 0,
-          hint: "identificar un factor que se repita en todos los términos de la expresión dada. Un factor común de esta expresión es 3, pero todavía es factorizable",
+          hint: "Identificar los factores que se repita en todos los términos de la expresión dada.",
         },
         {
           hintId: 1,
-          hint: "Otro factor común es 3x, pero todavía se puede agregar otro valor al factor común",
+          hint: "Un factor común es 3, pero se puede seguir factorizando hasta encontrar el factor común máximo",
         },
         { hintId: 2, hint: "El factor común de la expresión es 3xy" },
       ],

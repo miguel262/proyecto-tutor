@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { MathComponent } from "../../../components/MathJax";
+import { Loading } from "../../tools/Spinner";
 import {
   Alert,
   AlertIcon,
@@ -18,6 +19,8 @@ const FCCpaso1 = ({
   ejercicio,
   setPaso1Valido,
   paso1Valido,
+  loading,
+
   //hintsTerminado,
   //setHintsTerminado,
 }) => {
@@ -36,7 +39,7 @@ const FCCpaso1 = ({
     //El método some() comprueba si al menos un elemento del array
     //cumple con la condición implementada por la función proporcionada.
     if (correctas.some(valida)) {
-      TryStep(entrada, "Factor Común", ejercicio.stepId, true);
+      //TryStep(entrada, "Factor Común", ejercicio.stepId, true);
 
       setEstado(
         <>
@@ -48,7 +51,7 @@ const FCCpaso1 = ({
       );
       setPaso1Valido((paso1Valido = "Terminado"));
     } else {
-      TryStep(entrada, "Factor Común", ejercicio.stepId, false);
+      //TryStep(entrada, "Factor Común", ejercicio.stepId, false);
       setError(true);
       setEstado(
         //error cuando la entrada es incorrecta
@@ -64,6 +67,7 @@ const FCCpaso1 = ({
     <>
       <Wrap padding="15px 10px 10px 10px">
         <WrapItem padding="5px 0px 10px 0px">
+          {loading && <Loading />}
           <MathComponent
             tex={String.raw`${ejercicio.expression}`}
             display={false}

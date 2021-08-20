@@ -6,6 +6,7 @@ import FCCpaso2 from "./steps/FCCpaso2";
 import FCpaso1 from "../factorComun/steps/FCpaso1";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { FCCabstract } from "../tools/Abstracts";
+import { Loading } from "../tools/Spinner";
 import {
   Accordion,
   AccordionItem,
@@ -39,6 +40,9 @@ const FCC = () => {
     }
   }, [paso2Valido]);
 
+  const [loading, setLoading] = useState(true);
+  const change = () => setLoading(false);
+
   return (
     <>
       <BreadcrumbTutor
@@ -48,7 +52,12 @@ const FCC = () => {
 
       {ejercicio.text}
       <Wrap justify="center">
-        <MathComponent tex={ejercicio.steps[0].expression} display={true} />
+        {loading && <Loading />}
+        <MathComponent
+          tex={ejercicio.steps[0].expression}
+          display={true}
+          onSuccess={change}
+        />
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
@@ -77,6 +86,7 @@ const FCC = () => {
               paso1Valido={paso1Valido}
               hintsTerminado={hintsTerminado}
               setHintsTerminado={setHintsTerminado}
+              loading={loading}
             ></FCCpaso1>
           </AccordionPanel>
         </AccordionItem>
@@ -156,13 +166,13 @@ const FCC = () => {
                 setHintsTerminado={setHintsTerminado3}
               ></FCpaso1>
             )}
-            {paso3Valido != null && (
+            {/*paso3Valido != null && (
               <FCCabstract
                 ejercicio={ejercicio.steps[0]}
                 ejercicio1={ejercicio.steps[1]}
                 ejercicio2={ejercicio.steps[2]}
               />
-            )}
+            )*/}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
