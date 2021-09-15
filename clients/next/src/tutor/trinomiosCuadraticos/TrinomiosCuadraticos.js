@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio2 } from "./EjerciciosTC";
+//import { Ejercicio2 } from "./EjerciciosTC";
 import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { TCpaso1 } from "./steps/TCpaso1";
@@ -23,9 +23,9 @@ import {
 } from "@chakra-ui/react";
 
 //react functional component
-const TC = () => {
+const TC = ({ejercicio}) => {
   //const ejemplo = Ejercicio1;
-  const ejercicio = Ejercicio2;
+  //const ejercicio = Ejercicio2;
   const [paso1Valido, setPaso1Valido] = useState(null);
   const [paso2Valido, setPaso2Valido] = useState(null);
   const [paso3Valido, setPaso3Valido] = useState(null);

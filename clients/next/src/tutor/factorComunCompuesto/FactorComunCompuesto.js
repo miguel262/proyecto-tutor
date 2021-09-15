@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Ejercicio2 } from "./EjerciciosFCC";
 import { MathComponent } from "../../components/MathJax";
 import FCCpaso1 from "./steps/FCCpaso1";
 import FCCpaso2 from "./steps/FCCpaso2";
@@ -18,8 +17,7 @@ import {
   Wrap,
 } from "@chakra-ui/react";
 
-const FCC = () => {
-  const ejercicio = Ejercicio2;
+const FCC = ({ejercicio}) => {
   const [paso1Valido, setPaso1Valido] = useState(null);
   const [paso2Valido, setPaso2Valido] = useState(null);
   const [paso3Valido, setPaso3Valido] = useState(null);
