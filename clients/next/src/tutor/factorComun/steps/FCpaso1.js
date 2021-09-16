@@ -45,7 +45,7 @@ const FCCpaso1 = ({
         <>
           <Alert status="success">
             <AlertIcon />
-            {ejercicio.validation}
+            {ejercicio.correctMsg}
           </Alert>
         </>
       );
@@ -57,7 +57,7 @@ const FCCpaso1 = ({
         //error cuando la entrada es incorrecta
         <Alert status="error">
           <AlertIcon />
-          {ejercicio.error}
+          {ejercicio.incorrectMsg}
         </Alert>
       );
     }
@@ -99,7 +99,7 @@ const FCCpaso1 = ({
             ) : (
               <>
                 <MathComponent
-                  tex={String.raw`${ejercicio.result}`}
+                  tex={String.raw`${ejercicio.displayResult}`}
                   display={false}
                 />
               </>

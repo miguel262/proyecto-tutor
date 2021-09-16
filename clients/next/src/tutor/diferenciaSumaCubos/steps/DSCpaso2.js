@@ -36,7 +36,7 @@ export const DSCpaso2 = ({
       setEstado(
         <Alert status="success">
           <AlertIcon />
-          {ejercicio.validation}
+          {ejercicio.correctMsg}
         </Alert>
         // <MathComponent tex={ejercicio.result} display={false} />
       );
@@ -46,7 +46,7 @@ export const DSCpaso2 = ({
         //error cuando la entrada es incorrecta
         <Alert status="error">
           <AlertIcon />
-          {ejercicio.error}
+          {ejercicio.incorrectMsg}
         </Alert>
       );
     }

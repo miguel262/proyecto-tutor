@@ -7,8 +7,8 @@
       {
         "stepId": "0",
         "expression": "9x^2-1",
-        "step": "Paso 1: identificar términos al cuadrado",
-        "result": "(3x)^2-(1)^2",
+        "stepTitle": "Paso 1: identificar términos al cuadrado",
+        "displayResult": "(3x)^2-(1)^2",
         "hints": [
           {
             "hintId": 0,
@@ -21,15 +21,15 @@
           }
         ],
         "answers": [{ "answer": ["3x", "1"], "nextStep": "1" }],
-        "error":
+        "incorrectMsg":
           "No se han ingresado correctamente los términos que al cuadrado dan como resultado la expresión",
-        "validation": "Haz encontrado los términos al cuadrado"
+        "correctMsg": "Haz encontrado los términos al cuadrado"
       },
       {
         "stepId": "1",
         "expression": "(3x)^2-(1)^2",
-        "step": "Paso 2: ingresar suma por diferencia",
-        "result": "(3x+1)(3x-1)",
+        "stepTitle": "Paso 2: ingresar suma por diferencia",
+        "displayResult": "(3x+1)(3x-1)",
         "hints": [
           { "hintId": 0, "hint": "Primer paréntesis ingresar suma" },
           { "hintId": 1, "hint": "Segundo paréntesis ingresar resta" },
@@ -39,8 +39,8 @@
           }
         ],
         "answers": [{ "answer": ["3x+1", "3x-1"], "nextStep": null }],
-        "error": "suma por diferencia mal ingresado",
-        "validation": "Haz factorizado por diferencia de cuadradros"
+        "incorrectMsg": "suma por diferencia mal ingresado",
+        "correctMsg": "Haz factorizado por diferencia de cuadradros"
       }
     ]
   },
@@ -54,8 +54,8 @@
       {
         "stepId": "0",
         "expression": "x^2-y^2",
-        "step": "Paso 1: identificar terminos al cuadrado",
-        "result": "(x)^2-(y)^2",
+        "stepTitle": "Paso 1: identificar terminos al cuadrado",
+        "displayResult": "(x)^2-(y)^2",
         "hints": [
           {
             "hintId": 0,
@@ -71,23 +71,23 @@
           }
         ],
         "answers": [{ "answer": ["x", "y"], "nextStep": "1" }],
-        "error":
+        "incorrectMsg":
           "no se han ingresado correctamente los términos que al cuadrado dan como resultado la expresión",
-        "validation": "Haz encontrado los términos al cuadrado"
+        "correctMsg": "Haz encontrado los términos al cuadrado"
       },
       {
         "stepId": "1",
         "expression": "(x)^2-(y)^2",
-        "step": "Paso 2: ingresar suma por diferencia",
-        "result": "(x+y)(x-y)",
+        "stepTitle": "Paso 2: ingresar suma por diferencia",
+        "displayResult": "(x+y)(x-y)",
         "hints": [
           { "hintId": 0, "hint": "Primer paréntesis ingresar suma" },
           { "hintId": 1, "hint": "Segundo paréntesis ingresar resta" },
           { "hintId": 2, "hint": "Factorización por suma y diferencia: (x+y)(x-y)" }
         ],
         "answers": [{ "answer": ["x+y", "x-y"], "nextStep": null }],
-        "error": "suma por diferencia mal ingresado",
-        "validation": "Haz factorizado por diferencia de cuadradros"
+        "incorrectMsg": "suma por diferencia mal ingresado",
+        "correctMsg": "Haz factorizado por diferencia de cuadradros"
       }
     ]
   },
@@ -100,8 +100,8 @@
       {
         "stepId": "0",
         "expression": "4x^2y^4-16x^2y^2",
-        "step": "Paso 1: identificar terminos al cuadrado",
-        "result": "(2xy^2)^2-(4xy)^2",
+        "stepTitle": "Paso 1: identificar terminos al cuadrado",
+        "displayResult": "(2xy^2)^2-(4xy)^2",
         "hints": [
           {
             "hintId": 0,
@@ -122,23 +122,23 @@
           { "answer": ["2xy^2", "4yx"], "nextStep": "1" },
           { "answer": ["2y^2x", "4yx"], "nextStep": "1" }
         ],
-        "error":
+        "incorrectMsg":
           "no se han ingresado correctamente los términos que al cuadrado dan como resultado la expresión",
-        "validation": "Haz encontrado los términos al cuadrado"
+        "correctMsg": "Haz encontrado los términos al cuadrado"
       },
       {
         "stepId": "1",
         "expression": "(2xy^2)^2+(4xy)^2",
-        "step": "Paso 2: ingresar suma por diferencia",
-        "result": "(2xy^2+4xy)(2xy^2-4xy)",
+        "stepTitle": "Paso 2: ingresar suma por diferencia",
+        "displayResult": "(2xy^2+4xy)(2xy^2-4xy)",
         "hints": [
           { "hintId": 0, "hint": "Primer paréntesis ingresar suma" },
           { "hintId": 1, "hint": "Segundo paréntesis ingresar resta" },
           { "hintId": 2, "hint": "(2xy^2+4xy)(2xy^2-4xy)" }
         ],
         "answers": [{ "answer": ["2xy^2+4xy", "2xy^2-4xy"], "nextStep": null }],
-        "error": "suma por diferencia mal ingresado",
-        "validation": "Haz encontrado la diferencia de cuadradros"
+        "incorrectMsg": "suma por diferencia mal ingresado",
+        "correctMsg": "Haz encontrado la diferencia de cuadradros"
       }
     ]
   }

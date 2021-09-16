@@ -42,7 +42,7 @@ const FCCpaso2 = ({
         //error cuando la entrada es incorrecta
         <Alert status="error">
           <AlertIcon />
-          {ejercicio.error}
+          {ejercicio.incorrectMsg}
         </Alert>
       );
     }
@@ -78,7 +78,7 @@ const FCCpaso2 = ({
               isReadOnly={paso2Valido != null}
             />
             <label>)</label>
-            <MathComponent tex={ejercicio.result[0][1]} display={false} />
+            <MathComponent tex={ejercicio.displayResult[0][1]} display={false} />
             <label>&nbsp;+&nbsp;</label>
             <label>(</label>
             <Input
@@ -96,7 +96,7 @@ const FCCpaso2 = ({
             />
             <label>)</label>
             <MathComponent
-              tex={ejercicio.result[1][1]}
+              tex={ejercicio.displayResult[1][1]}
               display={false}
               style={{ textAlign: "center" }}
             />

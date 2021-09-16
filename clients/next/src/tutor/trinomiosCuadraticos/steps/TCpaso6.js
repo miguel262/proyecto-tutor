@@ -38,9 +38,9 @@ export const TCpaso6 = ({
       setEstado(
         <Alert status="success">
           <AlertIcon />
-          {ejercicio.validation}
+          {ejercicio.correctMsg}
           &nbsp;
-          <MathComponent tex={ejercicio.result} display={false} />
+          <MathComponent tex={ejercicio.displayResult} display={false} />
         </Alert>
       );
       setPaso6Valido((paso6Valido = "Terminado"));
@@ -50,7 +50,7 @@ export const TCpaso6 = ({
         //error cuando la entrada es incorrecta
         <Alert status="error">
           <AlertIcon />
-          {ejercicio.error}
+          {ejercicio.incorrectMsg}
         </Alert>
       );
     }

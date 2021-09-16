@@ -7,8 +7,8 @@
       {
         "stepId": 0,
         "expression": "6xy^2 - 15x^2y + 21x^2y^2",
-        "step": "Paso 1: Ingrese el factor común de la siguiente expresión: ",
-        "result": "(2y-5x+7xy)",
+        "stepTitle": "Paso 1: Ingrese el factor común de la siguiente expresión: ",
+        "displayResult": "(2y-5x+7xy)",
         "hints": [
           {
             "hintId": 0,
@@ -24,11 +24,12 @@
           { "answer": "3xy", "nextStep": null },
           { "answer": "3yx", "nextStep": null }
         ],
-        "error":
+        "incorrectMsg":
           "Factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-        "validation": "Haz encontrado el factor común"
+        "correctMsg": "Haz encontrado el factor común"
       }
-    ]
+    ],
+    "summary": ""
   },
   
   {
@@ -41,8 +42,8 @@
         "stepId": 0,
         "expression":
           "\\frac{5x^6}{3y^2} - \\frac{10x^2}{21y}- \\frac{20x^3}{9y^4}",
-        "step": "Ingrese el factor común de la siguiente expresión: ",
-        "result": "( \\frac{x^4}{y} - \\frac{2}{7} - \\frac{4x}{3y^3} )",
+        "stepTitle": "Ingrese el factor común de la siguiente expresión: ",
+        "displayResult": "( \\frac{x^4}{y} - \\frac{2}{7} - \\frac{4x}{3y^3} )",
         "hints": [
           {
             "hintId": 0,
@@ -59,11 +60,12 @@
           { "answer": "(5x^2)/(3y)", "nextStep": null },
           { "answer": "5x^2/(3y)", "nextStep": null }
         ],
-        "error":
+        "incorrectMsg":
           "Factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-        "validation": "Haz encontrado el factor común"
+        "correctMsg": "Haz encontrado el factor común"
       }
-    ]
+    ],
+    "summary": ""
   },
   {
     "itemId": 1002,
@@ -74,8 +76,8 @@
       {
         "stepId": 0,
         "expression": "2x^2y+3x^2z",
-        "step": "Ingrese el factor común de la siguiente expresión: ",
-        "result": "(2y+3z)",
+        "stepTitle": "Ingrese el factor común de la siguiente expresión: ",
+        "displayResult": "(2y+3z)",
         "hints": [
           {
             "hintId": 0,
@@ -85,11 +87,12 @@
           { "hintId": 2, "hint": "El factor común de la expresión es x^2" }
         ],
         "answers": [{ "answer": "x^2", "nextStep": null }],
-        "error":
+        "incorrectMsg":
           "Factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-        "validation": "Haz encontrado el factor común"
+        "correctMsg": "Haz encontrado el factor común"
       }
-    ]
+    ],
+    "summary": ""
   },
   {
     "itemId": 1003,
@@ -100,8 +103,8 @@
       {
         "stepId": 0,
         "expression": "12x+18y-24z",
-        "step": "Ingrese el factor común de la siguiente expresión: ",
-        "result": "(2x+3y-4z)",
+        "stepTitle": "Ingrese el factor común de la siguiente expresión: ",
+        "displayResult": "(2x+3y-4z)",
         "hints": [
           {
             "hintId": 0,
@@ -114,11 +117,12 @@
           { "hintId": 2, "hint": "El factor común de la expresión es 6" }
         ],
         "answers": [{ "answer": "6", "nextStep": null }],
-        "error":
+        "incorrectMsg":
           "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-        "validation": "Haz encontrado el factor común"
+        "correctMsg": "Haz encontrado el factor común"
       }
-    ]
+    ],
+    "summary": ""
   },
   
   {
@@ -130,8 +134,8 @@
       {
         "stepId": 0,
         "expression": "\\frac{x^{20}}{20} + \\frac{x^{10}}{10} - \\frac{x^5}{5}",
-        "step": "Ingrese el factor común de la siguiente expresión: ",
-        "result": "(\\frac{x^{15}}{4} + \\frac{x^5}{2} - 1)",
+        "stepTitle": "Ingrese el factor común de la siguiente expresión: ",
+        "displayResult": "(\\frac{x^{15}}{4} + \\frac{x^5}{2} - 1)",
         "hints": [
           {
             "hintId": 0,
@@ -149,11 +153,12 @@
           { "answer": "(x^5)/5", "nextStep": null },
           { "answer": "(x^5)/(5)", "nextStep": null }
         ],
-        "error":
+        "incorrectMsg":
           "Factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-        "validacion": "Haz encontrado el factor común"
+        "correctMsg": "Haz encontrado el factor común"
       }
-    ]
+    ],
+    "summary": ""
   },
   
   {
@@ -165,8 +170,8 @@
       {
         "stepId": 0,
         "expression": "10y^5-30xy^5-15xy^6",
-        "step": "Ingrese el factor común de la siguiente expresión: ",
-        "result": "(2-6x-3xy)",
+        "stepTitle": "Ingrese el factor común de la siguiente expresión: ",
+        "displayResult": "(2-6x-3xy)",
         "hints": [
           {
             "hintId": 0,
@@ -179,11 +184,12 @@
           { "hintId": 2, "hint": "El factor común de la expresión es 5y^5" }
         ],
         "answers": [{ "answer": "5y^5", "nextStep": null }],
-        "error":
+        "incorrectMsg":
           "Factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-        "validation": "Haz encontrado el factor común"
+        "correctMsg": "Haz encontrado el factor común"
       }
-    ]
+    ],
+    "summary": ""
   },
   
   {
@@ -195,8 +201,8 @@
       {
         "stepId": 0,
         "expression": "6x^2yz-30xy^2z^2+12x^2y^2z^2",
-        "step": "Ingrese el factor común de la siguiente expresión: ",
-        "result": "(x-5yz+2xyz)",
+        "stepTitle": "Ingrese el factor común de la siguiente expresión: ",
+        "displayResult": "(x-5yz+2xyz)",
         "hints": [
           {
             "hintId": 0,
@@ -216,11 +222,12 @@
           { "answer": "6zxy", "nextStep": null },
           { "answer": "6zyx", "nextStep": null }
         ],
-        "error":
+        "incorrectMsg":
           "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-        "validation": "Haz encontrado el factor común"
+        "correctMsg": "Haz encontrado el factor común"
       }
-    ]
+    ],
+    "summary": ""
   }
 ]
   

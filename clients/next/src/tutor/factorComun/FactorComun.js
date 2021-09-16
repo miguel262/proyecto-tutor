@@ -69,7 +69,7 @@ const FC = ({ ejercicio }) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[0].step}
+                {ejercicio.steps[0].stepTitle}
                 {paso1Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />

@@ -53,7 +53,7 @@ const FCCpaso1 = ({
         //error cuando la entrada es incorrecta
         <Alert status="error">
           <AlertIcon />
-          {ejercicio.error}
+          {ejercicio.incorrectMsg}
         </Alert>
       );
     }

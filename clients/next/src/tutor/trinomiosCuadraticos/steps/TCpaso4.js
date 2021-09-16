@@ -27,7 +27,7 @@ export const TCpaso4 = ({ ejercicio, setPaso4Valido, paso4Valido }) => {
         //error cuando la entrada es incorrecta
         <Alert status="error">
           <AlertIcon />
-          {ejercicio.error}
+          {ejercicio.incorrectMsg}
         </Alert>
       );
     }

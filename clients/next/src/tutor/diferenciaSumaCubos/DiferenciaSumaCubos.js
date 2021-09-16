@@ -39,9 +39,6 @@ const DSC = ({ejercicio}) => {
 
   return (
     <div>
-      {/*
-           <DSCejemplo ejemplo={ejemplo}></DSCejemplo>
-            */}
       <BreadcrumbTutor
         root="Factorización"
         item={ejercicio.itemTitle}
@@ -72,7 +69,7 @@ const DSC = ({ejercicio}) => {
               <Box flex="1" textAlign="left">
                 <Wrap>
                   <Center>
-                    {ejercicio.steps[0].step}&nbsp;&nbsp;
+                    {ejercicio.steps[0].stepTitle}&nbsp;&nbsp;
                     <MathComponent tex={String.raw`x_{1}`} display={false} />
                     &nbsp; y&nbsp;&nbsp;
                     <MathComponent tex={String.raw`x_{2}`} display={false} />
@@ -119,7 +116,7 @@ const DSC = ({ejercicio}) => {
               <Box flex="1" textAlign="left">
                 <Wrap>
                   <Center>
-                    {ejercicio.steps[1].step}
+                    {ejercicio.steps[1].stepTitle}
                     &nbsp;&nbsp;
                     {ejercicio.sign === "-" ? (
                       <MathComponent

@@ -110,7 +110,7 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[0].step}
+                {ejercicio.steps[0].stepTitle}
                 {paso1Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
@@ -148,7 +148,7 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[1].step}
+                {ejercicio.steps[1].stepTitle}
                 {paso2Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
@@ -187,7 +187,7 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[2].step}
+                {ejercicio.steps[2].stepTitle}
                 {paso3Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
@@ -226,7 +226,7 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[3].step}
+                {ejercicio.steps[3].stepTitle}
                 {paso4Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
@@ -265,7 +265,7 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[4].step}
+                {ejercicio.steps[4].stepTitle}
                 {paso5Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
@@ -304,7 +304,7 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[5].step}
+                {ejercicio.steps[5].stepTitle}
                 {paso6Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />

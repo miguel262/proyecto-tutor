@@ -37,7 +37,7 @@ export const DCpaso2 = ({
       setEstado(
         <Alert status="success">
           <AlertIcon />
-          {ejercicio.validation}
+          {ejercicio.correctMsg}
         </Alert>
       );
     } else {
@@ -46,7 +46,7 @@ export const DCpaso2 = ({
         //error cuando la entrada es incorrecta
         <Alert status="error">
           <AlertIcon />
-          {ejercicio.error}
+          {ejercicio.incorrectMsg}
         </Alert>
       );
     }

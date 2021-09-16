@@ -71,7 +71,7 @@ const FCC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[0].step}
+                {ejercicio.steps[0].stepTitle}
                 {paso1Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
@@ -109,7 +109,7 @@ const FCC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[1].step}
+                {ejercicio.steps[1].stepTitle}
                 {paso2Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
@@ -148,7 +148,7 @@ const FCC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[ejercicio.steps[1].answers.nextStep].step}
+                {ejercicio.steps[ejercicio.steps[1].answers.nextStep].stepTitle}
                 {paso3Valido != null && "    ✔ "}
               </Box>
               <AccordionIcon />
