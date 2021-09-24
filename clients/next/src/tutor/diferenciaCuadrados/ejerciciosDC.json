@@ -6,7 +6,7 @@
     "steps": [
       {
         "stepId": "0",
-        "expression": "9x^2-1",
+        "expression": "9x²-1",
         "stepTitle": "Paso 1: identificar términos al cuadrado",
         "displayResult": "(3x)^2-(1)^2",
         "hints": [
@@ -23,7 +23,8 @@
         "answers": [{ "answer": ["3x", "1"], "nextStep": "1" }],
         "incorrectMsg":
           "No se han ingresado correctamente los términos que al cuadrado dan como resultado la expresión",
-        "correctMsg": "Haz encontrado los términos al cuadrado"
+        "correctMsg": "Haz encontrado los términos al cuadrado",
+        "summary":"1) Para aplicar factorización por diferencia de cuadrados, se deben identificar los términos que están al cuadrado de la forma (x₁)² - (x₂)² como se muestra a continuación:"
       },
       {
         "stepId": "1",
@@ -40,7 +41,8 @@
         ],
         "answers": [{ "answer": ["3x+1", "3x-1"], "nextStep": null }],
         "incorrectMsg": "suma por diferencia mal ingresado",
-        "correctMsg": "Haz factorizado por diferencia de cuadradros"
+        "correctMsg": "Haz factorizado por diferencia de cuadradros",
+        "summary":"2) Ya identificado x₁ y x₂ se puede aplicar la fórmula que permite factorizar la expresión en suma por su diferencia  (x₁+x₂)(x₁-x₂)"
       }
     ]
   },
@@ -73,7 +75,8 @@
         "answers": [{ "answer": ["x", "y"], "nextStep": "1" }],
         "incorrectMsg":
           "no se han ingresado correctamente los términos que al cuadrado dan como resultado la expresión",
-        "correctMsg": "Haz encontrado los términos al cuadrado"
+        "correctMsg": "Haz encontrado los términos al cuadrado",
+        "summary":"1) Para aplicar factorización por diferencia de cuadrados, se deben identificar los términos que están al cuadrado de la forma (x₁)² - (x₂)² como se muestra a continuación:"
       },
       {
         "stepId": "1",
@@ -87,7 +90,8 @@
         ],
         "answers": [{ "answer": ["x+y", "x-y"], "nextStep": null }],
         "incorrectMsg": "suma por diferencia mal ingresado",
-        "correctMsg": "Haz factorizado por diferencia de cuadradros"
+        "correctMsg": "Haz factorizado por diferencia de cuadradros",
+        "summary":"2) Ya identificado x₁ y x₂ se puede aplicar la fórmula que permite factorizar la expresión en suma por su diferencia  (x₁+x₂)(x₁-x₂)"
       }
     ]
   },
@@ -124,7 +128,8 @@
         ],
         "incorrectMsg":
           "no se han ingresado correctamente los términos que al cuadrado dan como resultado la expresión",
-        "correctMsg": "Haz encontrado los términos al cuadrado"
+        "correctMsg": "Haz encontrado los términos al cuadrado",
+        "summary":"1) Para aplicar factorización por diferencia de cuadrados, se deben identificar los términos que están al cuadrado de la forma (x₁)² - (x₂)² como se muestra a continuación:"
       },
       {
         "stepId": "1",
@@ -138,7 +143,8 @@
         ],
         "answers": [{ "answer": ["2xy^2+4xy", "2xy^2-4xy"], "nextStep": null }],
         "incorrectMsg": "suma por diferencia mal ingresado",
-        "correctMsg": "Haz encontrado la diferencia de cuadradros"
+        "correctMsg": "Haz encontrado la diferencia de cuadradros",
+        "summary":"2) Ya identificado x₁ y x₂ se puede aplicar la fórmula que permite factorizar la expresión en suma por su diferencia  (x₁+x₂)(x₁-x₂)"
       }
     ]
   }

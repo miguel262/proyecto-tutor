@@ -8,7 +8,7 @@ import { TCpaso3 } from "./steps/TCpaso3";
 import { TCpaso4 } from "./steps/TCpaso4";
 import { TCpaso5 } from "./steps/TCpaso5";
 import { TCpaso6 } from "./steps/TCpaso6";
-import { TCabstract } from "../tools/Abstracts";
+import { TCsummary } from "../tools/Summary";
 import { Loading } from "../tools/Spinner";
 
 import {
@@ -322,7 +322,7 @@ const TC = ({ejercicio}) => {
               ></TCpaso6>
             )}
             {paso6Valido != null && (
-              <TCabstract
+              <TCsummary
                 step1={ejercicio.steps[0]}
                 step2={ejercicio.steps[1]}
                 step3={ejercicio.steps[2]}

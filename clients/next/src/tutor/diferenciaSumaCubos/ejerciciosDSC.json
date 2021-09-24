@@ -18,7 +18,8 @@
         "answers": [{ "answer": ["x", "y"], "nextStep": "1" }],
         "incorrectMsg":
           "no se han ingresado correctamente los términos que al cubos dan como resultado la expresión",
-        "correctMsg": "Haz encontrado los términos al cubo"
+        "correctMsg": "Haz encontrado los términos al cubo",
+        "summary":"1) Para aplicar factorización por diferencia de cubos, se deben identificar los términos que están al cubo de la forma (x₁)³ - (x₂)³ como se muestra a continuación:"
       },
       {
         "stepId": "1",
@@ -32,7 +33,8 @@
         ],
         "answers": [{ "answer": ["x-y", "x^2+xy+y^2"], "nextStep": null }],
         "incorrectMsg": "valores mal ingresados",
-        "correctMsg": "Haz encontrado la diferencia de cubos"
+        "correctMsg": "Haz encontrado la diferencia de cubos",
+        "summary":"2) Ya identificado x₁ y x₂ se puede aplicar la fórmula que permite factorizar la expresión por diferencia de cubos (x₁-x₂)(x₁²+x₁x₂+x₂²)"
       }
     ]
   },
@@ -59,7 +61,8 @@
         "answers": [{ "answer": ["2x", "y"], "nextStep": "1" }],
         "incorrectMsg":
           "no se han ingresado correctamente los términos que al cubos dan como resultado la expresión",
-        "correctMsg": "Haz encontrado los términos al cubo"
+        "correctMsg": "Haz encontrado los términos al cubo",
+        "summary":"1) Para aplicar factorización por suma de cubos, se deben identificar los términos que están al cubo de la forma (x₁)³ + (x₂)³ como se muestra a continuación:"
       },
       {
         "stepId": "1",
@@ -76,7 +79,8 @@
         ],
         "answers": [{ "answer": ["2x+y", "4x^2-2xy+y^2"], "nextStep": null }],
         "incorrectMsg": "Valores mal ingresados",
-        "correctMsg": "Haz encontrado la diferencia de cubos"
+        "correctMsg": "Haz encontrado la diferencia de cubos",
+        "summary":"2) Ya identificado x₁ y x₂ se puede aplicar la fórmula que permite factorizar la expresión por suma de cubos (x₁+x₂)(x₁²-x₁x₂+x₂²)"
       }
     ]
   }

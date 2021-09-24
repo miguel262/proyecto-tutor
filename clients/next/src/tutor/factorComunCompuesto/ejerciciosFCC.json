@@ -26,7 +26,8 @@
               { "answer": ["bx+ax", "by+ay"], "nextStep": "2" }
             ],
             "incorrectMsg": "no se ha agrupado correctamente la expresión",
-            "correctMsg": "Has agrupado los sumandos"
+            "correctMsg": "Has agrupado los sumandos",
+            "summary": "1) se agrupan los sumandos que contengan términos iguales en dos grupos diferentes (este ejercicio puede desarrollarse de dos formas diferentes)"
           },
           {
             "stepId": "1",
@@ -47,7 +48,8 @@
             "answers": { "answer": ["a", "b"], "nextStep": "3" },
             "incorrectMsg":
               "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-            "correctMsg": "Has encontrado el factor común"
+            "correctMsg": "Has encontrado el factor común",
+            "summary":"2) De los grupos creados en el paso anterior, se calcula el factor común a cada grupo"
           },
           {
             "stepId": "2",
@@ -68,7 +70,8 @@
             "answers": { "answer": ["x", "y"], "nextStep": "4" },
             "incorrectMsg":
               "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-            "correctMsg": "Haz encontrado el factor común"
+            "correctMsg": "Haz encontrado el factor común",
+            "summary":"2) De los grupos creados en el paso anterior, se calcula el factor común a cada grupo"
           },
           {
             "stepId": "3",
@@ -80,10 +83,11 @@
               { "hintId": 1, "hint": "el factor común es una suma de variables" },
               { "hintId": 2, "hint": "el factor común de la expresión es: x + y" }
             ],
-            "answers": { "answer": "x+y", "nextStep": null },
+            "answers": [{ "answer": "x+y", "nextStep": null }],
             "incorrectMsg":
               "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-            "correctMsg": "Haz encontrado el factor común  compuesto"
+            "correctMsg": "Haz encontrado el factor común  compuesto",
+            "summary":"3) Finalmente se factoriza por factor común la expresión general"
           },
           {
             "stepId": "4",
@@ -98,7 +102,8 @@
             "answers": [{ "answer": "a+b", "nextStep": null }],
             "incorrectMsg":
               "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-            "correctMsg": "Has factorizado por factor común compuesto"
+            "correctMsg": "Has factorizado por factor común compuesto",
+            "summary":"3) Finalmente se factoriza por factor común la expresión general"
           }
         ]
       },
@@ -168,7 +173,8 @@
               { "answer": ["5a-ay+2ax", "5b-by+2bx"], "nextStep": "1" }
             ],
             "incorrectMsg": "no se ha agrupado correctamente la expresión",
-            "correctMsg": "Haz agrupado los sumandos"
+            "correctMsg": "Haz agrupado los sumandos",
+            "summary": "1) se agrupan los sumandos que contengan términos iguales en dos grupos diferentes"
           },
           {
             "stepId": "1",
@@ -189,13 +195,14 @@
             "answers": { "answer": ["a", "b"], "nextStep": "2" },
             "incorrectMsg":
               "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-            "correctMsg": "Haz encontrado el factor común"
+            "correctMsg": "Haz encontrado el factor común",
+            "summary":"2) De los grupos creados en el paso anterior, se calcula el factor común a cada grupo"
           },
           {
             "stepId": "2",
             "expression": "a(2x-y+5)+b(2x-y+5)",
             "stepTitle": "Paso 3: ingrese el factor común",
-            "displayResult": "(2x-y+5)(a+b)",
+            "displayResult": "(a+b)",
             "hints": [
               { "hintId": 0, "hint": "ver variable que se repite en ambos sumandos" },
               { "hintId": 2, "hint": "el factor común de la expresión es: x + y" }
@@ -210,7 +217,8 @@
             ],
             "incorrectMsg":
               "factor común incorrecto, ingrese el factor común correspondiente a la expresión dada",
-            "correctMsg": "Haz encontrado el factor común compuesto"
+            "correctMsg": "Haz encontrado el factor común compuesto",
+            "summary":"3) Finalmente se factoriza por factor común la expresión general"
           }
         ]
       }

@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ClickStepTab } from "./../tools/ClickStepTab";
-import { FCabstract } from "../tools/Abstracts";
+import { FCsummary } from "../tools/Summary";
 
 const FC = ({ ejercicio }) => {
   //const ejercicio=Ejercicio1;
@@ -85,7 +85,7 @@ const FC = ({ ejercicio }) => {
                 // setHintsTerminado={setHintsTerminado}
               ></FCpaso1>
               {paso1Valido != null && (
-                <FCabstract ejercicio={ejercicio.steps[0]} />
+                <FCsummary ejercicio={ejercicio.steps[0]} />
               )}
             </>
           </AccordionPanel>

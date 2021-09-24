@@ -16,7 +16,8 @@
         ],
         "answers": [{ "answer": ["1"], "nextStep": "1" }],
         "incorrectMsg": "no es el valor de a",
-        "correctMsg": "Haz encontrado el valor de a"
+        "correctMsg": "Haz encontrado el valor de a",
+        "summary":"1) El resultado final de la factorización por trinomios cuadráticos es de la forma a(x-x₁)(x-x₂), donde x₁, x₂ son las raices a calcular  y 'a' es el valor que acompaña a x²"
       },
       {
         "stepId": "1",
@@ -30,13 +31,14 @@
         ],
         "answers": [{ "answer": ["1", "8", "12"], "nextStep": "2" }],
         "incorrectMsg": "no son los valores correspondientes a los valores a, b y c",
-        "correctMsg": "Haz identificado los valores de a, b y c"
+        "correctMsg": "Haz identificado los valores de a, b y c",
+        "summary":"2) Para encontrar los valores x₁, x₂ se utiliza la fórmula x₁, x₂= (-b ± Δ)/2a, entonces es necesario identificar a, b y c de la expresión cuadrática."
       },
       {
         "stepId": "2",
         "expression": "a=1, b=8, c=12",
         "stepTitle": "Paso 3: calcular discriminante Δ = b²-4ac",
-        "displayResult": "Δ=b²-4ac=16",
+        "displayResult": "Δ=b²-4ac=8²-4*1*12=16",
         "hints": [
           { "hintId": 0, "hint": "reemplace en la fórmula Δ por: a=1, b=8 y c=12" },
           { "hintId": 1, "hint": "Hint 2" },
@@ -45,7 +47,8 @@
         "answers": [{ "answer": "16", "nextStep": "3" }],
         "incorrectMsg":
           "no se han ingresado correctamente el discriminante de la expresión",
-        "correctMsg": "Haz calculado correctamente el discriminante"
+        "correctMsg": "Haz calculado correctamente el discriminante",
+        "summary":"3) La fómula anterior utiliza el discriminante (Δ) y se calcula como b²-4ac"
       },
       {
         "stepId": "3",
@@ -66,7 +69,8 @@
           ],
         "answers": [{ "answer": "1", "nextStep": "4" }],
         "incorrectMsg": "caso mal ingresado",
-        "correctMsg": "Haz descubierto a que caso corresponde el discriminante"
+        "correctMsg": "Haz descubierto a que caso corresponde el discriminante",
+        "summary":"4) Si Δ>0 posee dos raices diferentes, si Δ=0 posee dos raices iguales y Δ<0 posee raices complejas, entonces:"
       },
       {
         "stepId": "4",
@@ -83,8 +87,9 @@
           { "hintId": 2, "hint": "El valor de x1=-2 y x2=-6" }
         ],
         "answers": [{ "answer": ["-2", "-6"], "nextStep": "5" }],
-        "error": "raices mal ingresadas",
-        "validation": "Haz encontrado las raices del polinomio"
+        "incorrectMsg": "raices mal ingresadas",
+        "correctMsg": "Haz encontrado las raices del polinomio",
+        "summary":"5) Ya con todos los valores de la fórmula se puede calcular x₁= (-b + Δ)/2a y x₂= (-b - Δ)/2a"
       },
       {
         "stepId": "5",
@@ -106,7 +111,8 @@
           }
         ],
         "incorrectMsg": "error en la factorización",
-        "correctMsg": "Haz factorizado por trinomios cuadráticos correctamente"
+        "correctMsg": "Haz factorizado por trinomios cuadráticos correctamente",
+        "summary":"6) Se completa la factorización por trinomios cuadráticos de la forma a(x-x₁)(x-x₂)"
       }
     ]
   },
@@ -128,7 +134,8 @@
         ],
         "answers": [{ "answer": ["3"], "nextStep": "1" }],
         "incorrectMsg": "no es el valor de a",
-        "correctMsg": "Haz encontrado el valor de a"
+        "correctMsg": "Haz encontrado el valor de a",
+        "summary":"1) El resultado final de la factorización por trinomios cuadráticos es de la forma a(x-x₁)(x-x₂), donde x₁, x₂ son las raices a calcular  y 'a' es el valor que acompaña a x²"
       },
       {
         "stepId": "1",
@@ -142,7 +149,8 @@
         ],
         "answers": [{ "answer": ["3", "8", "-11"], "nextStep": "2" }],
         "incorrectMsg": "no son los valores correspondientes a los valores a, b y c",
-        "correctMsg": "Haz identificado los valores de a, b y c"
+        "correctMsg": "Haz identificado los valores de a, b y c",
+        "summary":"2) Para encontrar los valores x₁, x₂ se utiliza la fórmula x₁, x₂= (-b ± Δ)/2a, entonces es necesario identificar a, b y c de la expresión cuadrática."
       },
       {
         "stepId": "2",
@@ -160,7 +168,8 @@
         "answers": [{ "answer": "196", "nextStep": "3" }],
         "incorrectMsg":
           "no se han ingresado correctamente el discriminante de la expresión",
-        "correctMsg": "Haz calculado correctamente el discriminante"
+        "correctMsg": "Haz calculado correctamente el discriminante",
+        "summary":"3) La fómula anterior utiliza el discriminante (Δ) y se calcula como b²-4ac"
       },
       {
         "stepId": "3",
@@ -181,7 +190,8 @@
         ],
         "answers": [{ "answer": "1", "nextStep": "4" }],
         "incorrectMsg": "caso mal ingresado",
-        "correctMsg": "Haz descubierto a que caso corresponde el discriminante"
+        "correctMsg": "Haz descubierto a que caso corresponde el discriminante",
+        "summary":"4) Si Δ>0 posee dos raices diferentes, si Δ=0 posee dos raices iguales y Δ<0 posee raices complejas, entonces:"
       },
       {
         "stepId": "4",
@@ -199,7 +209,8 @@
         ],
         "answers": [{ "answer": ["1", "-11/3"], "nextStep": "5" }],
         "incorrectMsg": "raices mal ingresadas",
-        "correctMsg": "Haz encontrado las raices del polinomio"
+        "correctMsg": "Haz encontrado las raices del polinomio",
+        "summary":"5) Ya con todos los valores de la fórmula se puede calcular x₁= (-b + Δ)/2a y x₂= (-b - Δ)/2a"
       },
       {
         "stepId": "5",
@@ -226,7 +237,8 @@
           }
         ],
         "incorrectMsg": "error en la factorización",
-        "correctMsg": "Haz factorizado por trinomios cuadráticos correctamente"
+        "correctMsg": "Haz factorizado por trinomios cuadráticos correctamente",
+        "summary":"6) Se completa la factorización por trinomios cuadráticos de la forma a(x-x₁)(x-x₂)"
       }
     ]
   }

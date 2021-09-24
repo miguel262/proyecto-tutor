@@ -4,7 +4,7 @@ import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { DSCpaso1 } from "./steps/DSCpaso1";
 import { DSCpaso2 } from "./steps/DSCpaso2";
-import { DSCabstract } from "../tools/Abstracts";
+import { DSCsummary } from "../tools/Summary";
 import { Loading } from "../tools/Spinner";
 import {
   Accordion,
@@ -148,7 +148,7 @@ const DSC = ({ejercicio}) => {
               ></DSCpaso2>
             )}
             {paso2Valido != null && (
-              <DSCabstract
+              <DSCsummary
                 step1={ejercicio.steps[0]}
                 step2={ejercicio.steps[1]}
                 sign={ejercicio.sign}

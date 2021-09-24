@@ -4,7 +4,7 @@ import FCCpaso1 from "./steps/FCCpaso1";
 import FCCpaso2 from "./steps/FCCpaso2";
 import FCpaso1 from "../factorComun/steps/FCpaso1";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
-import { FCCabstract } from "../tools/Abstracts";
+import { FCCsummary } from "../tools/Summary";
 import { Loading } from "../tools/Spinner";
 import {
   Accordion,
@@ -164,16 +164,18 @@ const FCC = ({ejercicio}) => {
                 setHintsTerminado={setHintsTerminado3}
               ></FCpaso1>
             )}
-            {/*paso3Valido != null && (
-              <FCCabstract
-                ejercicio={ejercicio.steps[0]}
-                ejercicio1={ejercicio.steps[1]}
-                ejercicio2={ejercicio.steps[2]}
-              />
-            )*/}
+            {paso3Valido != null && (
+          <FCCsummary 
+            ejercicio={ejercicio}
+          />
+          )}
           </AccordionPanel>
         </AccordionItem>
+
+
+        
       </Accordion>
+      
     </>
   );
 };

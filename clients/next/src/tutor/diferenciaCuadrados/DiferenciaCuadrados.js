@@ -5,7 +5,7 @@ import { MathComponent } from "../../components/MathJax";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { DCpaso1 } from "./steps/DCpaso1";
 import { DCpaso2 } from "./steps/DCpaso2";
-import { DCabstract } from "../tools/Abstracts";
+import { DCsummary } from "../tools/Summary";
 import { Loading } from "../tools/Spinner";
 
 import {
@@ -143,7 +143,7 @@ const DC = ({ejercicio}) => {
               ></DCpaso2>
             )}
             {paso2Valido != null && (
-              <DCabstract
+              <DCsummary
                 step1={ejercicio.steps[0]}
                 step2={ejercicio.steps[1]}
               />
