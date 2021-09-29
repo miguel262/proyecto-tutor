@@ -78,7 +78,7 @@ const TC = ({ejercicio}) => {
   const change = () => setLoading(false);
 
   return (
-    <div>
+    <>
       {/*Ejemplo diferencia de cubos 
             <TCejemplo ejemplo={ejemplo}></TCejemplo>
             */}
@@ -321,7 +321,10 @@ const TC = ({ejercicio}) => {
                 a={ejercicio.steps[0].answers[0].answer}
               ></TCpaso6>
             )}
-            {paso6Valido != null && (
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+      {paso6Valido != null && (
               <TCsummary
                 step1={ejercicio.steps[0]}
                 step2={ejercicio.steps[1]}
@@ -331,10 +334,7 @@ const TC = ({ejercicio}) => {
                 step6={ejercicio.steps[5]}
               />
             )}
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-    </div>
+    </>
   );
 };
 

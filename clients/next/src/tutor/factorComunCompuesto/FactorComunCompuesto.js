@@ -164,18 +164,17 @@ const FCC = ({ejercicio}) => {
                 setHintsTerminado={setHintsTerminado3}
               ></FCpaso1>
             )}
-            {paso3Valido != null && (
+            
+          </AccordionPanel>
+        </AccordionItem>
+
+      </Accordion>
+      {paso3Valido != null && (
+        
           <FCCsummary 
             ejercicio={ejercicio}
           />
           )}
-          </AccordionPanel>
-        </AccordionItem>
-
-
-        
-      </Accordion>
-      
     </>
   );
 };

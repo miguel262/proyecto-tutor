@@ -142,15 +142,16 @@ const DC = ({ejercicio}) => {
                 setHintsTerminado={setHintsTerminado2}
               ></DCpaso2>
             )}
-            {paso2Valido != null && (
+            
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+      {paso2Valido != null && (
               <DCsummary
                 step1={ejercicio.steps[0]}
                 step2={ejercicio.steps[1]}
               />
             )}
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
     </>
   );
 };

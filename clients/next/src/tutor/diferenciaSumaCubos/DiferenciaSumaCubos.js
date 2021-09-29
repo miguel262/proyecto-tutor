@@ -38,7 +38,7 @@ const DSC = ({ejercicio}) => {
   const change = () => setLoading(false);
 
   return (
-    <div>
+    <>
       <BreadcrumbTutor
         root="Factorización"
         item={ejercicio.itemTitle}
@@ -147,17 +147,17 @@ const DSC = ({ejercicio}) => {
                 setHintsTerminado={setHintsTerminado2}
               ></DSCpaso2>
             )}
-            {paso2Valido != null && (
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+      {paso2Valido != null && (
               <DSCsummary
                 step1={ejercicio.steps[0]}
                 step2={ejercicio.steps[1]}
                 sign={ejercicio.sign}
               />
             )}
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-    </div>
+    </>
   );
 };
 

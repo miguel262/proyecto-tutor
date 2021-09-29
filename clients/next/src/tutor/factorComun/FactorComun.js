@@ -84,13 +84,15 @@ const FC = ({ ejercicio }) => {
                 loading={loading}
                 // setHintsTerminado={setHintsTerminado}
               ></FCpaso1>
-              {paso1Valido != null && (
-                <FCsummary ejercicio={ejercicio.steps[0]} />
-              )}
+              
             </>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
+
+      {paso1Valido != null && (
+                <FCsummary ejercicio={ejercicio.steps[0]} />
+              )}
     </div>
   );
 };

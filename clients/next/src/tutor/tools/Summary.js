@@ -1,10 +1,10 @@
 import React from "react";
-import { Alert, Wrap, Heading, Spacer, Text } from "@chakra-ui/react";
+import { Alert, Wrap, Heading, Spacer, Text,Box } from "@chakra-ui/react";
 import { MathComponent } from "../../components/MathJax";
 
 export const FCsummary = ({ ejercicio }) => {
   return (
-    <>
+    <Box>
       <Alert status="info">
         <Wrap>
           <Heading w="100%" fontSize="xl" align="center">
@@ -23,14 +23,14 @@ export const FCsummary = ({ ejercicio }) => {
               />
         </Wrap>
       </Alert>
-    </>
+    </Box>
   );
 };
 
 export const FCCsummary = ({ ejercicio }) => {
   return (
-    <>
-    <Alert status="info">
+    <Box>
+    <Alert status="info" >
       <Wrap>
       <Heading w="100%" fontSize="xl" align="center"> Resumen</Heading>
       <Text w="100%"/>
@@ -103,13 +103,13 @@ export const FCCsummary = ({ ejercicio }) => {
 
       </Wrap>
     </Alert>
-    </>
+    </Box>
   );
 };
 
 export const DCsummary = ({ step1, step2 }) => {
   return (
-    <>
+    <Box>
       <Alert status="info">
         <Wrap>
           <Heading w="100%" fontSize="xl" align="center">
@@ -133,13 +133,13 @@ export const DCsummary = ({ step1, step2 }) => {
               />
         </Wrap>
       </Alert>
-    </>
+    </Box>
   );
 };
 
 export const DSCsummary = ({ step1, step2}) => {
   return (
-    <>
+    <Box>
       <Alert status="info">
       <Wrap>
           <Heading w="100%" fontSize="xl" align="center">
@@ -163,13 +163,13 @@ export const DSCsummary = ({ step1, step2}) => {
               />
         </Wrap>
       </Alert>
-    </>
+    </Box>
   );
 };
 
 export const TCsummary = ({ step1, step2, step3, step4, step5, step6 }) => {
   return (
-    <>
+    <Box>
       <Alert status="info">
         <Wrap>
         <Heading w="100%" fontSize="xl" align="center">
@@ -211,6 +211,6 @@ export const TCsummary = ({ step1, step2, step3, step4, step5, step6 }) => {
               />
         </Wrap>
       </Alert>
-    </>
+    </Box>
   );
 };
