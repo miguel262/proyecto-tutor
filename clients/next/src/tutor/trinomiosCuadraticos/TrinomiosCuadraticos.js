@@ -19,8 +19,11 @@ import {
   AccordionIcon,
   Box,
   Alert,
-  Wrap,
+  Wrap, Spacer
 } from "@chakra-ui/react";
+
+import { VideoScreen } from "../tools/VideoScreen";
+import { SelectStep } from "../tools/SelectStep";
 
 //react functional component
 const TC = ({ejercicio}) => {
@@ -38,6 +41,15 @@ const TC = ({ejercicio}) => {
   const [hintsTerminado5, setHintsTerminado5] = useState(null);
   const [hintsTerminado6, setHintsTerminado6] = useState(null);
   const [index, setIndex] = useState([0]);
+
+   //selectStep
+   const [select, setSelect] = useState(true);
+   const [select2, setSelect2] = useState(true);
+   const [select3, setSelect3] = useState(true);
+   const [select4, setSelect4] = useState(true);
+   const [select5, setSelect5] = useState(true);
+   const [select6, setSelect6] = useState(true);
+   const steps = ejercicio.steps.map((i)=>i.stepTitle);
 
   useEffect(() => {
     //cierra paso 1 al completarlo
@@ -87,7 +99,11 @@ const TC = ({ejercicio}) => {
         item={ejercicio.itemTitle}
       ></BreadcrumbTutor>
 
-      {ejercicio.text}
+      <Wrap>{ejercicio.text}
+        <Spacer/>
+        <VideoScreen></VideoScreen>
+      </Wrap>
+
       <Wrap justify="center">
         {loading && <Loading />}
         <MathComponent
@@ -98,7 +114,7 @@ const TC = ({ejercicio}) => {
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
-        <AccordionItem isFocusable={false}>
+        <AccordionItem isFocusable={false} isDisabled = {select}>
           <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
@@ -110,25 +126,26 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[0].stepTitle}
-                {paso1Valido != null && "    ✔ "}
+                {!select&&ejercicio.steps[0].stepTitle}
+                {paso1Valido != null && !select&& "    ✔ "}
+                {select&&<Wrap>Paso 1:<SelectStep correct={0} steps={steps} setSelect={setSelect}></SelectStep></Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            <TCpaso1
+          {!select&&<TCpaso1
               ejercicio={ejercicio.steps[0]}
               setPaso1Valido={setPaso1Valido}
               paso1Valido={paso1Valido}
               hintsTerminado={hintsTerminado}
               setHintsTerminado={setHintsTerminado}
               loading={loading}
-            ></TCpaso1>
+            ></TCpaso1>}
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem>
+        <AccordionItem isDisabled = {select2}>
           <Alert
             colorScheme={
               paso2Valido == null
@@ -148,14 +165,15 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[1].stepTitle}
-                {paso2Valido != null && "    ✔ "}
+                {!select2&& ejercicio.steps[1].stepTitle}
+                {paso2Valido != null && !select2&& "    ✔ "}
+                {select2&&paso1Valido != null&&<Wrap>Paso 2:<SelectStep correct={1} steps={steps} setSelect={setSelect2}></SelectStep></Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso1Valido != null && (
+            {paso1Valido != null && !select2&& (
               <TCpaso2
                 ejercicio={ejercicio.steps[1]}
                 setPaso2Valido={setPaso2Valido}
@@ -167,7 +185,7 @@ const TC = ({ejercicio}) => {
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem>
+        <AccordionItem isDisabled = {select3}>
           <Alert
             colorScheme={
               paso3Valido == null
@@ -187,14 +205,15 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[2].stepTitle}
-                {paso3Valido != null && "    ✔ "}
+                {!select3 && ejercicio.steps[2].stepTitle}
+                {paso3Valido != null && !select3 && "    ✔ "}
+                {select3&&paso2Valido != null&&<Wrap>Paso 3:<SelectStep correct={2} steps={steps} setSelect={setSelect3}></SelectStep></Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso2Valido != null && (
+            {paso2Valido != null && !select3&& (
               <TCpaso3
                 ejercicio={ejercicio.steps[2]}
                 setPaso3Valido={setPaso3Valido}
@@ -206,7 +225,7 @@ const TC = ({ejercicio}) => {
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem>
+        <AccordionItem isDisabled = {select4}>
           <Alert
             colorScheme={
               paso4Valido == null
@@ -226,14 +245,15 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[3].stepTitle}
-                {paso4Valido != null && "    ✔ "}
+                {!select4 && ejercicio.steps[3].stepTitle}
+                {paso4Valido != null && !select4&& "    ✔ "}
+                {select4&&paso3Valido != null&&<Wrap>Paso 4:<SelectStep correct={3} steps={steps} setSelect={setSelect4}></SelectStep></Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso3Valido != null && (
+            {paso3Valido != null && !select4&&  (
               <TCpaso4
                 ejercicio={ejercicio.steps[3]}
                 setPaso4Valido={setPaso4Valido}
@@ -245,7 +265,7 @@ const TC = ({ejercicio}) => {
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem>
+        <AccordionItem isDisabled = {select5}>
           <Alert
             colorScheme={
               paso5Valido == null
@@ -265,14 +285,15 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[4].stepTitle}
-                {paso5Valido != null && "    ✔ "}
+                {!select5&& ejercicio.steps[4].stepTitle}
+                {paso5Valido != null && !select5&& "    ✔ "}
+                {select5&&paso4Valido != null&&<Wrap>Paso 5:<SelectStep correct={4} steps={steps} setSelect={setSelect5}></SelectStep></Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso4Valido != null && (
+            {paso4Valido != null && !select5&& (
               <TCpaso5
                 ejercicio={ejercicio.steps[4]}
                 setPaso5Valido={setPaso5Valido}
@@ -284,7 +305,7 @@ const TC = ({ejercicio}) => {
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem>
+        <AccordionItem isDisabled = {select6}>
           <Alert
             colorScheme={
               paso6Valido == null
@@ -304,14 +325,15 @@ const TC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[5].stepTitle}
-                {paso6Valido != null && "    ✔ "}
+                {!select6 && ejercicio.steps[5].stepTitle}
+                {paso6Valido != null && !select6 && "    ✔ "}
+                {select6&&paso5Valido != null&&<Wrap>Paso 6:<SelectStep correct={5} steps={steps} setSelect={setSelect6}></SelectStep></Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso5Valido != null && (
+            {paso5Valido != null && !select6 &&  (
               <TCpaso6
                 ejercicio={ejercicio.steps[5]}
                 setPaso6Valido={setPaso6Valido}

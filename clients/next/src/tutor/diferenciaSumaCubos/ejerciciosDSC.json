@@ -1,5 +1,8 @@
 [ {
     "itemId": 4000,
+    "code":"",
+    "label":"",
+    "KCs":[{"code":"", "label":""},{"code":"", "label":""}],
     "itemTitle": "Factorización por diferencia de cubos.",
     "sign": "-",
     "level": "1",
@@ -8,7 +11,7 @@
       {
         "stepId": "0",
         "expression": "x^3-y^3",
-        "stepTitle": "Paso 1: identificar términos al cubo",
+        "stepTitle": "Paso 1: identificar los términos al cubo x₁ y x₂",
         "displayResult": "(x)^3-(y)^3",
         "hints": [
           { "hintId": 0, "hint": "Ingresar raices cúbicas de los valores" },
@@ -24,11 +27,11 @@
       {
         "stepId": "1",
         "expression": "(x)^3-(y)^3",
-        "stepTitle": "Paso 2: ingresar la identidad (diferencia de cubos)",
+        "stepTitle": "Paso 2: ingresar la identidad (diferencia de cubos) (x₁ - x₂)(x₁² + x₁x₂ + x₂²)",
         "displayResult": "(x-y)(x^2+xy+y^2)",
         "hints": [
           { "hintId": 0, "hint": "Utilice identidad de cubos" },
-          { "hintId": 1, "hint": "La identidad de cubos es (x±y)(x²±xy+y²)" },
+          { "hintId": 1, "hint": "La identidad de cubos es (x₁±x₂)(x₁²±x₁x₂+x₂²)" },
           { "hintId": 2, "hint": "(x-y)(x²+xy+y²)" }
         ],
         "answers": [{ "answer": ["x-y", "x^2+xy+y^2"], "nextStep": null }],
@@ -48,7 +51,7 @@
       {
         "stepId": "0",
         "expression": "8x^3+y^3",
-        "stepTitle": "Paso 1: identificar términos al cubo",
+        "stepTitle": "Paso 1: identificar términos al cubo  x₁ y x₂",
         "displayResult": "(2x)^3+(y)^3",
         "hints": [
           { "hintId": 0, "hint": "Ingresar raices cúbicas de los valores" },
@@ -67,11 +70,11 @@
       {
         "stepId": "1",
         "expression": "(2x)^3+(y)^3",
-        "stepTitle": "Paso 2: ingresar la identidad (suma de cubos)",
+        "stepTitle": "Paso 2: ingresar la identidad (suma de cubos) (x₁ + x₂)(x₁² - x₁x₂ + x₂²)",
         "displayResult": "(2x+y)(4x^2-2xy+y^2)",
         "hints": [
           { "hintId": 0, "hint": "Utilice identidad de cubos" },
-          { "hintId": 1, "hint": "La identidad de cubos es (x±y)(x²±xy+y²)" },
+          { "hintId": 1, "hint": "La identidad de cubos es (x₁±x₂)(x₁²±x₁x₂+x₂²)" },
           {
             "hintId": 2,
             "hint": "Factorización por suma de cubos: (2x+y)(4x^2-2xy+y^2)"

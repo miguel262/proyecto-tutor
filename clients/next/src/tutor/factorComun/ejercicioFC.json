@@ -1,6 +1,9 @@
 [ {
     "itemId": 1000,
     "itemTitle": "Factor común",
+    "code":"",
+    "label":"",
+    "KCs":[{"code":"", "label":""},{"code":"", "label":""}],
     "level": "3",
     "text": "Texto problema/ejercicio, planteamiento",
     "steps": [

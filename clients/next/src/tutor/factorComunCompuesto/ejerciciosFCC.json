@@ -2,6 +2,9 @@
     {
         "ItemId": 2000,
         "itemTitle": "Factor común compuesto",
+        "code":"",
+        "label":"",
+        "KCs":[{"code":"", "label":""},{"code":"", "label":""}],
         "level": "3",
         "text": "Resolver el siguiente ejercicio de factorización por factor común compuesto",
         "steps": [

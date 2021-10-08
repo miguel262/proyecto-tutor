@@ -15,8 +15,10 @@ import {
   Box,
   Alert,
   Wrap,
-  Center,
+  Center, Spacer
 } from "@chakra-ui/react";
+import { VideoScreen } from "../tools/VideoScreen";
+import { SelectStep } from "../tools/SelectStep";
 
 //react functional component
 const DSC = ({ejercicio}) => {
@@ -36,6 +38,10 @@ const DSC = ({ejercicio}) => {
 
   const [loading, setLoading] = useState(true);
   const change = () => setLoading(false);
+   //selectStep
+   const [select, setSelect] = useState(true);
+   const [select2, setSelect2] = useState(true);
+   const steps = ejercicio.steps.map((i)=>i.stepTitle);
 
   return (
     <>
@@ -44,7 +50,11 @@ const DSC = ({ejercicio}) => {
         item={ejercicio.itemTitle}
       ></BreadcrumbTutor>
 
-      {ejercicio.text}
+      <Wrap>{ejercicio.text}
+        <Spacer/>
+        <VideoScreen></VideoScreen>
+      </Wrap>
+
       <Wrap justify="center">
         {loading && <Loading />}
         <MathComponent
@@ -55,7 +65,7 @@ const DSC = ({ejercicio}) => {
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
-        <AccordionItem isFocusable={false}>
+        <AccordionItem isFocusable={false} isDisabled = {select}>
           <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
@@ -69,12 +79,9 @@ const DSC = ({ejercicio}) => {
               <Box flex="1" textAlign="left">
                 <Wrap>
                   <Center>
-                    {ejercicio.steps[0].stepTitle}&nbsp;&nbsp;
-                    <MathComponent tex={String.raw`x_{1}`} display={false} />
-                    &nbsp; y&nbsp;&nbsp;
-                    <MathComponent tex={String.raw`x_{2}`} display={false} />
-                    &nbsp;&nbsp;
-                    {paso1Valido != null && "    ✔ "}
+                    {!select&& ejercicio.steps[0].stepTitle}
+                    {paso1Valido != null && !select&& "    ✔ "}
+                    {select&&<Wrap>Paso 1:<SelectStep correct={0} steps={steps} setSelect={setSelect}></SelectStep></Wrap>}
                   </Center>
                 </Wrap>
               </Box>
@@ -82,7 +89,7 @@ const DSC = ({ejercicio}) => {
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            <DSCpaso1
+            {!select&& <DSCpaso1
               ejercicio={ejercicio.steps[0]}
               setPaso1Valido={setPaso1Valido}
               paso1Valido={paso1Valido}
@@ -90,11 +97,11 @@ const DSC = ({ejercicio}) => {
               hintsTerminado={hintsTerminado}
               setHintsTerminado={setHintsTerminado}
               loading={loading}
-            ></DSCpaso1>
+            ></DSCpaso1>}
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem>
+        <AccordionItem isDisabled = {select2}>
           <Alert
             colorScheme={
               paso2Valido == null
@@ -116,21 +123,9 @@ const DSC = ({ejercicio}) => {
               <Box flex="1" textAlign="left">
                 <Wrap>
                   <Center>
-                    {ejercicio.steps[1].stepTitle}
-                    &nbsp;&nbsp;
-                    {ejercicio.sign === "-" ? (
-                      <MathComponent
-                        tex={String.raw`(x_{1}-x_{2})(x_{1}^2+x_{1}x_{2}+x_{2}^2)`}
-                        display={false}
-                      />
-                    ) : (
-                      <MathComponent
-                        tex={String.raw`(x_{1}+x_{2})(x_{1}^2-x_{1}x_{2}+x_{2}^2)`}
-                        display={false}
-                      />
-                    )}
-                    &nbsp;&nbsp;
-                    {paso2Valido != null && "    ✔ "}
+                    {!select2 && ejercicio.steps[1].stepTitle}
+                    {paso2Valido != null && !select2 && "    ✔ "}
+                    {select2&&paso1Valido != null&&<Wrap>Paso 2:<SelectStep correct={1} steps={steps} setSelect={setSelect2}></SelectStep></Wrap>}
                   </Center>
                 </Wrap>
               </Box>
@@ -138,7 +133,7 @@ const DSC = ({ejercicio}) => {
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso1Valido != null && (
+            {paso1Valido != null && !select2 && (
               <DSCpaso2
                 ejercicio={ejercicio.steps[paso1Valido]}
                 setPaso2Valido={setPaso2Valido}

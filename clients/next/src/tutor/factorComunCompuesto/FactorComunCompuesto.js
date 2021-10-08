@@ -6,6 +6,7 @@ import FCpaso1 from "../factorComun/steps/FCpaso1";
 import { BreadcrumbTutor } from "../tools/BreadcrumbTutor";
 import { FCCsummary } from "../tools/Summary";
 import { Loading } from "../tools/Spinner";
+import { SelectStep } from "../tools/SelectStep";
 import {
   Accordion,
   AccordionItem,
@@ -14,8 +15,9 @@ import {
   AccordionIcon,
   Box,
   Alert,
-  Wrap,
+  Wrap, Spacer
 } from "@chakra-ui/react";
+import { VideoScreen } from "../tools/VideoScreen";
 
 const FCC = ({ejercicio}) => {
   const [paso1Valido, setPaso1Valido] = useState(null);
@@ -24,7 +26,12 @@ const FCC = ({ejercicio}) => {
   const [hintsTerminado, setHintsTerminado] = useState(null);
   const [hintsTerminado2, setHintsTerminado2] = useState(null);
   const [hintsTerminado3, setHintsTerminado3] = useState(null);
-  const [index, setIndex] = useState([1, 2, 0]);
+  const [index, setIndex] = useState([0,1,2]);
+  //selectStep
+  const [select, setSelect] = useState(true);
+  const [select2, setSelect2] = useState(true);
+  const [select3, setSelect3] = useState(true);
+  const steps = ejercicio.steps.map((i)=>i.stepTitle);
 
   useEffect(() => {
     if (paso1Valido != null) {
@@ -48,7 +55,11 @@ const FCC = ({ejercicio}) => {
         item={ejercicio.itemTitle}
       ></BreadcrumbTutor>
 
-      {ejercicio.text}
+      <Wrap>{ejercicio.text}
+        <Spacer/>
+        <VideoScreen></VideoScreen>
+      </Wrap>
+
       <Wrap justify="center">
         {loading && <Loading />}
         <MathComponent
@@ -59,7 +70,7 @@ const FCC = ({ejercicio}) => {
       </Wrap>
 
       <Accordion allowToggle allowMultiple index={index} style={{ padding: 0 }}>
-        <AccordionItem isFocusable={false}>
+        <AccordionItem isFocusable={false} isDisabled = {select}>
           <Alert colorScheme={paso1Valido == null ? "blue" : "green"}>
             <AccordionButton
               onClick={() => {
@@ -69,27 +80,32 @@ const FCC = ({ejercicio}) => {
                   setIndex(index.concat(0));
                 }
               }}
+              
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[0].stepTitle}
-                {paso1Valido != null && "    ✔ "}
+                {!select&&ejercicio.steps[0].stepTitle
+                }
+                {paso1Valido != null && !select &&"    ✔ "
+                }
+                {select&&<Wrap>Paso 1:<SelectStep correct={0} steps={steps} setSelect={setSelect}></SelectStep>
+                </Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            <FCCpaso1
+            {!select&&<FCCpaso1
               ejercicio={ejercicio.steps[0]}
               setPaso1Valido={setPaso1Valido}
               paso1Valido={paso1Valido}
               hintsTerminado={hintsTerminado}
               setHintsTerminado={setHintsTerminado}
               loading={loading}
-            ></FCCpaso1>
+            ></FCCpaso1>}
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem isFocusable={true}>
+        <AccordionItem isFocusable={true} isDisabled = {select2}>
           <Alert
             colorScheme={
               paso2Valido == null
@@ -109,14 +125,16 @@ const FCC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[1].stepTitle}
-                {paso2Valido != null && "    ✔ "}
+                {!select2&&ejercicio.steps[1].stepTitle}
+                {paso2Valido != null && !select2 && "    ✔ "}
+                {select2&&paso1Valido != null&&<Wrap>Paso 2:<SelectStep correct={1} steps={steps} setSelect={setSelect2}></SelectStep>
+                </Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso1Valido != null && (
+            {paso1Valido != null && !select2&&(
               <FCCpaso2
                 ejercicio={ejercicio.steps[paso1Valido]}
                 setPaso2Valido={setPaso2Valido}
@@ -128,7 +146,7 @@ const FCC = ({ejercicio}) => {
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem>
+        <AccordionItem isDisabled = {select3}>
           <Alert
             colorScheme={
               paso3Valido == null
@@ -148,14 +166,16 @@ const FCC = ({ejercicio}) => {
               }}
             >
               <Box flex="1" textAlign="left">
-                {ejercicio.steps[ejercicio.steps[1].answers.nextStep].stepTitle}
-                {paso3Valido != null && "    ✔ "}
+                {!select3&&ejercicio.steps[ejercicio.steps[1].answers.nextStep].stepTitle}
+                {paso3Valido != null && !select3 && "    ✔ "}
+                {select3&&paso2Valido != null&&<Wrap>Paso 2:<SelectStep correct={2} steps={steps} setSelect={setSelect3}></SelectStep>
+                </Wrap>}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </Alert>
           <AccordionPanel style={{ padding: 0 }}>
-            {paso2Valido != null && (
+            {paso2Valido != null && !select3&&(
               <FCpaso1
                 ejercicio={ejercicio.steps[paso2Valido]}
                 setPaso1Valido={setPaso3Valido}
